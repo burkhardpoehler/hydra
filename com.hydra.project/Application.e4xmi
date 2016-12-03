@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:advanced="http://www.eclipse.org/ui/2010/UIModel/application/ui/advanced" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_2XNQkM3YEeO40b46FSasUA" elementId="org.eclipse.e4.ide.application" bindingContexts="_2XNQmc3YEeO40b46FSasUA">
+  <children xsi:type="basic:TrimmedWindow" xmi:id="_2XNQkc3YEeO40b46FSasUA" label="Hydra" bindingContexts="_2XNQmc3YEeO40b46FSasUA" width="1500" height="1000">
+    <children xsi:type="advanced:PerspectiveStack" xmi:id="_2XNQsM3YEeO40b46FSasUA">
+      <children xsi:type="advanced:Perspective" xmi:id="_V2H_cM3iEeO40b46FSasUA" elementId="com.hydra.project.perspective.Standard" label="Standard">
+        <children xsi:type="basic:PartSashContainer" xmi:id="_cjIC8M3iEeO40b46FSasUA" elementId="com.hydra.project.partsashcontainer.main" containerData="8000">
+          <children xsi:type="basic:PartStack" xmi:id="_g2zeoM3iEeO40b46FSasUA" elementId="com.hydra.project.partstack.0" containerData="1000">
+            <children xsi:type="basic:Part" xmi:id="_j4EQMM3iEeO40b46FSasUA" elementId="com.hydra.project.part.baumview" containerData="9000" contributionURI="bundleclass://com.hydra.project/com.hydra.project.parts.BaumView" label="Baumviewer" iconURI="platform:/plugin/com.hydra.project/icons/16x16/help.gif" tooltip="Baumviewer">
+              <menus xsi:type="menu:PopupMenu" xmi:id="_bMPOUO-pEeOJesQiy3ejWw" elementId="com.hydra.project.popupmenu.BaumView" label="Baumview">
+                <children xsi:type="menu:HandledMenuItem" xmi:id="_fla1EO-pEeOJesQiy3ejWw" elementId="com.hydra.project.handledmenuitem.deleteNode" label="Knoten löschen" iconURI="platform:/plugin/com.hydra.project/icons/16x16/trash.gif" tooltip="Knoten löschen" command="_7Eq_0Nq-EeOsL_A0fsOmuA"/>
+              </menus>
+              <toolbar xmi:id="_o6zCUO-kEeOJesQiy3ejWw" elementId="com.hydra.project.toolbar.BaumViewToolBar">
+                <children xsi:type="menu:HandledToolItem" xmi:id="_w-hoMO-kEeOJesQiy3ejWw" elementId="com.hydra.project.handledtoolitem.deleteNode" label="Knoten löschen" iconURI="platform:/plugin/com.hydra.project/icons/16x16/trash.gif" tooltip="Knoten löschen" command="_7Eq_0Nq-EeOsL_A0fsOmuA"/>
+                <children xsi:type="menu:HandledToolItem" xmi:id="_Az9P0O-lEeOJesQiy3ejWw" elementId="com.hydra.project.handledtoolitem.newNode" label="Knoten neu" iconURI="platform:/plugin/com.hydra.project/icons/16x16/node-select-next.png" tooltip="Knoten neu" command="_g45ZwO7mEeO7WM7v8OaTGQ"/>
+                <children xsi:type="menu:HandledToolItem" xmi:id="_GPK3AB-XEeSmM59gxeMlew" elementId="com.hydra.project.handledtoolitem.newNodeChild" label="Knoten neu Unterebene" iconURI="platform:/plugin/com.hydra.project/icons/16x16/node-delete-next.png" tooltip="Erzeugt neuen Knoten als Kindknoten unterhalb des ausgewählten Knotens" command="_yTeE8B-TEeSmM59gxeMlew"/>
+                <children xsi:type="menu:ToolBarSeparator" xmi:id="_VimpIO-lEeOJesQiy3ejWw" elementId="com.hydra.project.toolbarseparator.0"/>
+                <children xsi:type="menu:HandledToolItem" xmi:id="_WsXtkO-lEeOJesQiy3ejWw" elementId="com.hydra.project.handledtoolitem.copyNode" label="Knoten kopieren" iconURI="platform:/plugin/com.hydra.project/icons/16x16/copy_edit_co.gif" tooltip="Knoten kopieren" command="_8dnIcO7lEeO7WM7v8OaTGQ"/>
+                <children xsi:type="menu:HandledToolItem" xmi:id="_cuAf4O-lEeOJesQiy3ejWw" elementId="com.hydra.project.handledtoolitem.cutNode" label="Knoten ausschneiden" iconURI="platform:/plugin/com.hydra.project/icons/16x16/cut_edit.gif" tooltip="Knoten ausschneiden" command="_L3eOYO7mEeO7WM7v8OaTGQ"/>
+                <children xsi:type="menu:HandledToolItem" xmi:id="_kZJmoO-lEeOJesQiy3ejWw" elementId="com.hydra.project.handledtoolitem.pasteNode" label="Knoten einfügen" iconURI="platform:/plugin/com.hydra.project/icons/16x16/clipboard--plus.png" tooltip="Knoten einfügen" command="_wxTc4O7mEeO7WM7v8OaTGQ"/>
+                <children xsi:type="menu:ToolBarSeparator" xmi:id="_rk2YUO-lEeOJesQiy3ejWw" elementId="com.hydra.project.toolbarseparator.1"/>
+                <children xsi:type="menu:HandledToolItem" xmi:id="_sX0GUO-lEeOJesQiy3ejWw" elementId="com.hydra.project.handledtoolitem.nodeUp" label="Knoten nach oben" iconURI="platform:/plugin/com.hydra.project/icons/16x16/up.gif" tooltip="Knoten nach oben" command="_kkCOwO7mEeO7WM7v8OaTGQ"/>
+                <children xsi:type="menu:HandledToolItem" xmi:id="_z2vWAO-lEeOJesQiy3ejWw" elementId="com.hydra.project.handledtoolitem.nodeDown" label="Knoten nach unten" iconURI="platform:/plugin/com.hydra.project/icons/16x16/Down.GIF" tooltip="Knoten nach unten" command="_sLTiIO7mEeO7WM7v8OaTGQ"/>
+                <children xsi:type="menu:HandledToolItem" xmi:id="_6VlowO-lEeOJesQiy3ejWw" elementId="com.hydra.project.handledtoolitem.levelUp" label="Knoten Ebene höher" iconURI="platform:/plugin/com.hydra.project/icons/16x16/LevelUp.GIF" tooltip="Knoten Ebene höher" command="_cORdsO7mEeO7WM7v8OaTGQ"/>
+                <children xsi:type="menu:HandledToolItem" xmi:id="_AkVqAO-mEeOJesQiy3ejWw" elementId="com.hydra.project.handledtoolitem.levelDown" label="Knoten Ebene tiefer" iconURI="platform:/plugin/com.hydra.project/icons/16x16/LevelDown.gif" tooltip="Knoten Ebene tiefer" command="_UkxVsO7mEeO7WM7v8OaTGQ"/>
+                <children xsi:type="menu:ToolBarSeparator" xmi:id="_G-uTgO-mEeOJesQiy3ejWw" elementId="com.hydra.project.toolbarseparator.2"/>
+                <children xsi:type="menu:HandledToolItem" xmi:id="_IB7c8O-mEeOJesQiy3ejWw" elementId="com.hydra.project.handledtoolitem.refresh" label="Aktualisieren" iconURI="platform:/plugin/com.hydra.project/icons/16x16/read_obj.gif" tooltip="Aktualisieren" command="_1lm5YO7mEeO7WM7v8OaTGQ"/>
+                <children xsi:type="menu:ToolBarSeparator" xmi:id="_igy68HgTEeWCBepXuDGBrg" elementId="com.hydra.project.toolbarseparator.7"/>
+                <children xsi:type="menu:HandledToolItem" xmi:id="_lMly0HgTEeWCBepXuDGBrg" elementId="com.hydra.project.handledtoolitem.KnotenstrukturAbgleichen" label="Knotenstruktur abgleichen" iconURI="platform:/plugin/com.hydra.project/icons/16x16/blue-folder-tree.png" tooltip="Gleicht die Unterstruktur des Knotens an" command="_P7ewMHgUEeWCBepXuDGBrg"/>
+                <children xsi:type="menu:ToolBarSeparator" xmi:id="_0gWNsHaHEeWfP-rSUyProw" elementId="com.hydra.project.toolbarseparator.5"/>
+                <children xsi:type="menu:HandledToolItem" xmi:id="_Jf-UEHgOEeWCBepXuDGBrg" elementId="com.hydra.project.handledtoolitem.EigenschaftEinzelndAbgleichen" label="Einzelnd abgleichen" iconURI="platform:/plugin/com.hydra.project/icons/16x16/wrench--plus.png" tooltip="Gleicht die Werte einer einzelnen Eigenschaft ab" command="_YZhXsHgNEeWCBepXuDGBrg"/>
+                <children xsi:type="menu:ToolBarSeparator" xmi:id="_IrOdYHgOEeWCBepXuDGBrg" elementId="com.hydra.project.toolbarseparator.6"/>
+                <children xsi:type="menu:HandledToolItem" xmi:id="_1M0SIHaHEeWfP-rSUyProw" elementId="com.hydra.project.handledtoolitem.ParameterEinzelndAbgleichen" label="Einzelnd abgleichen" iconURI="platform:/plugin/com.hydra.project/icons/16x16/tables.png" tooltip="Gleicht die Werte eines einzelnen Parameters ab" command="_TniV8HNYEeWOgptnw4M0BA"/>
+              </toolbar>
+            </children>
+          </children>
+        </children>
+        <children xsi:type="basic:PartSashContainer" xmi:id="_on6DcM3iEeO40b46FSasUA" elementId="com.hydra.project.partsashcontainer.0" containerData="1000">
+          <children xsi:type="basic:PartStack" xmi:id="_JHJ-ANMTEeSrM9de9z3p1Q" elementId="com.hydra.project.partstack.calendar">
+            <children xsi:type="basic:Part" xmi:id="_8ZNRENMxEeWA0-BIUAF0dw" elementId="com.hydra.project.part.TableView" contributionURI="bundleclass://com.hydra.project/com.hydra.project.parts.TableView" label="Tabellenviewer" iconURI="platform:/plugin/com.hydra.project/icons/16x16/table-excel.png" tooltip="Tabellen Ansicht">
+              <toolbar xmi:id="_olTzUNMyEeWA0-BIUAF0dw" elementId="com.hydra.project.toolbar.0"/>
+            </children>
+            <children xsi:type="basic:Part" xmi:id="__lyP4NMzEeWA0-BIUAF0dw" elementId="com.hydra.project.part.RichtTextViewer" contributionURI="bundleclass://com.hydra.project/com.hydra.project.parts.RichtTextView" label="RichtTextViewer" iconURI="platform:/plugin/com.hydra.project/icons/16x16/font-x-generic.png" tooltip="RichtTextViewer"/>
+            <children xsi:type="basic:Part" xmi:id="_GFwHgNM1EeWA0-BIUAF0dw" elementId="com.hydra.project.part.GalleryViewer" contributionURI="bundleclass://com.hydra.project/com.hydra.project.parts.GalleryView" label="GalleryViewer" iconURI="platform:/plugin/com.hydra.project/icons/16x16/slides-stack.png" tooltip="GalleryViewer"/>
+            <children xsi:type="basic:Part" xmi:id="_QFzFkNM0EeWA0-BIUAF0dw" elementId="com.hydra.project.part.VisualizationView" contributionURI="bundleclass://com.hydra.project/com.hydra.project.parts.VisualizationView" label="VisualizationViewer" iconURI="platform:/plugin/com.hydra.project/icons/16x16/chart-down-color.png" tooltip="VisualizationViewer">
+              <toolbar xmi:id="_EzUPQNM1EeWA0-BIUAF0dw" elementId="com.hydra.project.toolbar.2"/>
+            </children>
+            <children xsi:type="basic:Part" xmi:id="_8WgF4NMyEeWA0-BIUAF0dw" elementId="com.hydra.project.part.GanttView" contributionURI="bundleclass://com.hydra.project/com.hydra.project.parts.GanttView" label="GanttViewer" iconURI="platform:/plugin/com.hydra.project/icons/16x16/table-delete-row.png" tooltip="GanttViewer">
+              <toolbar xmi:id="_55rosNMzEeWA0-BIUAF0dw" elementId="com.hydra.project.toolbar.1"/>
+            </children>
+            <children xsi:type="basic:Part" xmi:id="_Skn-ANMTEeSrM9de9z3p1Q" elementId="com.hydra.project.part.projectcalendar" contributionURI="bundleclass://com.hydra.project/com.hydra.project.parts.ProjectCalendarView" label="Projekt Kalender"/>
+            <children xsi:type="basic:Part" xmi:id="_l7AzMB0TEeaA06hAXcJwLg" elementId="com.hydra.project.part.ReportView" contributionURI="bundleclass://com.hydra.project/com.hydra.project.parts.ReportView" label="Report" iconURI="platform:/plugin/com.hydra.project/icons/16x16/blue-folder-open-table.png"/>
+          </children>
+          <children xsi:type="basic:PartStack" xmi:id="_pL0BwM3iEeO40b46FSasUA" elementId="com.hydra.project.partstack.1" containerData="6000">
+            <children xsi:type="basic:Part" xmi:id="_tKePsM3iEeO40b46FSasUA" elementId="com.hydra.project.part.propertyview" containerData="8000" contributionURI="bundleclass://com.hydra.project/com.hydra.project.parts.PropertyView" label="Eigenschaften">
+              <menus xsi:type="menu:PopupMenu" xmi:id="_FKHcUIm3EeSk1dr1k5EhDA" elementId="com.hydra.project.popupmenu.propertyview" label="Eigenschaften">
+                <children xsi:type="menu:HandledMenuItem" xmi:id="_QDtcEIm3EeSk1dr1k5EhDA" elementId="com.hydra.project.handledmenuitem.copy" label="Kopieren" command="_Vd3iMIm4EeSk1dr1k5EhDA"/>
+                <children xsi:type="menu:HandledMenuItem" xmi:id="_U6BjYIm6EeSk1dr1k5EhDA" elementId="com.hydra.project.handledmenuitem.cut" label="Ausschneiden" command="_aXo4EIm5EeSk1dr1k5EhDA"/>
+                <children xsi:type="menu:HandledMenuItem" xmi:id="_ZSKBQIm6EeSk1dr1k5EhDA" elementId="com.hydra.project.handledmenuitem.paste" label="Einfügen" command="_e8cgAIm5EeSk1dr1k5EhDA"/>
+                <children xsi:type="menu:HandledMenuItem" xmi:id="_cOz_oIm6EeSk1dr1k5EhDA" elementId="com.hydra.project.handledmenuitem.delete" label="Löschen" command="_ieylYIm5EeSk1dr1k5EhDA"/>
+              </menus>
+              <toolbar xmi:id="_snxMcIn5EeShl9D2GBc1nA" elementId="com.hydra.project.toolbar.propertyview">
+                <children xsi:type="menu:HandledToolItem" xmi:id="_uSS0kIn5EeShl9D2GBc1nA" elementId="com.hydra.project.handledtoolitem.copy" label="Kopieren" iconURI="platform:/plugin/com.hydra.project/icons/16x16/copy_edit_co.gif" tooltip="Text kopieren" command="_Vd3iMIm4EeSk1dr1k5EhDA"/>
+                <children xsi:type="menu:HandledToolItem" xmi:id="_x1BUcIn5EeShl9D2GBc1nA" elementId="com.hydra.project.handledtoolitem.cut" label="Ausschneiden" iconURI="platform:/plugin/com.hydra.project/icons/16x16/cut_edit.gif" tooltip="Text ausschneiden" command="_aXo4EIm5EeSk1dr1k5EhDA"/>
+                <children xsi:type="menu:HandledToolItem" xmi:id="_6f8dMIn5EeShl9D2GBc1nA" elementId="com.hydra.project.handledtoolitem.paste" label="Einfügen" iconURI="platform:/plugin/com.hydra.project/icons/16x16/clipboard--plus.png" tooltip="Text einfügen" command="_e8cgAIm5EeSk1dr1k5EhDA"/>
+                <children xsi:type="menu:HandledToolItem" xmi:id="_80bBQIn5EeShl9D2GBc1nA" elementId="com.hydra.project.handledtoolitem.delete" label="Löschen" iconURI="platform:/plugin/com.hydra.project/icons/16x16/trash.gif" tooltip="Text löschen" command="_ieylYIm5EeSk1dr1k5EhDA"/>
+              </toolbar>
+            </children>
+          </children>
+          <children xsi:type="basic:PartStack" xmi:id="_u9XJoM3iEeO40b46FSasUA" elementId="com.hydra.project.partstack.2" containerData="1000">
+            <children xsi:type="basic:Part" xmi:id="_nTCVIJDYEeS7Nv1ZZIBcaQ" elementId="com.hydra.project.part.solverView" containerData="500" contributionURI="bundleclass://com.hydra.project/com.hydra.project.parts.SolverView" label="Solver"/>
+            <children xsi:type="basic:Part" xmi:id="_vdQKoM3iEeO40b46FSasUA" elementId="com.hydra.project.part.editorenview" containerData="500" contributionURI="bundleclass://com.hydra.project/com.hydra.project.parts.EditorenView" label="Editoren"/>
+          </children>
+          <children xsi:type="basic:PartStack" xmi:id="_pyr2cPC-EeO5Ar_AEzOKrw" elementId="com.hydra.project.partstack.logview" containerData="1000">
+            <children xsi:type="basic:Part" xmi:id="_yPS2YPC-EeO5Ar_AEzOKrw" elementId="com.hydra.project.part.0" containerData="1000" contributionURI="bundleclass://com.hydra.project/com.hydra.project.parts.LogfileView" label="Logfile"/>
+          </children>
+        </children>
+      </children>
+      <children xsi:type="advanced:Perspective" xmi:id="_MeMK0AbSEeWiBdzl426Nwg" elementId="com.hydra.project.perspective.ProjectCalendar" label="Projekt Kalender Ansicht" iconURI="platform:/plugin/com.hydra.project/icons/16x16/table-resize.png">
+        <children xsi:type="basic:PartStack" xmi:id="_Hp9xYAbTEeWiBdzl426Nwg" elementId="com.hydra.project.partstack.ProjectCalendar">
+          <children xsi:type="basic:Part" xmi:id="_RBT7QAbTEeWiBdzl426Nwg" elementId="com.hydra.project.part.ProjectCalendar" contributionURI="bundleclass://com.hydra.project/com.hydra.project.parts.ProjectCalendarView" label="Projekt Kalender"/>
+        </children>
+      </children>
+      <children xsi:type="advanced:Perspective" xmi:id="_cfWs8KUOEeaEapi3sV6tFQ" elementId="com.hydra.project.perspective.Inventor" label="Inventor" iconURI="platform:/plugin/com.hydra.project/icons/16x16/Format.gif">
+        <children xsi:type="basic:PartStack" xmi:id="_rFiTMKUOEeaEapi3sV6tFQ" elementId="com.hydra.project.partstack.Inventor">
+          <children xsi:type="basic:Part" xmi:id="_sFpFUKUOEeaEapi3sV6tFQ" elementId="com.hydra.project.part.InventorExcel" contributionURI="bundleclass://com.hydra.project/com.hydra.project.parts.InventorExcelTableView" label="Inventor Excel Transferdatei" iconURI="platform:/plugin/com.hydra.project/icons/16x16/application-task.png"/>
+        </children>
+      </children>
+    </children>
+    <mainMenu xmi:id="_2XNQqc3YEeO40b46FSasUA" elementId="menu:org.eclipse.ui.main.menu">
+      <children xsi:type="menu:Menu" xmi:id="_2XNQqs3YEeO40b46FSasUA" elementId="MainMenu_File" label="Datei">
+        <persistedState key="Project01" value="empty"/>
+        <persistedState key="Project02" value="empty"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_2XNQq83YEeO40b46FSasUA" label="Öffnen" iconURI="platform:/plugin/com.hydra.project/icons/16x16/toc_open.gif" command="_2XNQoM3YEeO40b46FSasUA"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_2XNQrM3YEeO40b46FSasUA" label="Speichern" iconURI="platform:/plugin/com.hydra.project/icons/16x16/save_edit.png" command="_2XNQo83YEeO40b46FSasUA"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_giPGsM78EeOmQ_S8_5ux4Q" elementId="com.hydra.project.handledmenuitem.saveAs" label="Speichern unter" iconURI="platform:/plugin/com.hydra.project/icons/16x16/saveas_edit.gif" command="_tbeC8M78EeOmQ_S8_5ux4Q"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_2XNQrc3YEeO40b46FSasUA" label="Schliessen" iconURI="platform:/plugin/com.hydra.project/icons/16x16/closedBook.gif" command="_2XNQnM3YEeO40b46FSasUA"/>
+        <children xsi:type="menu:MenuSeparator" xmi:id="_4V1d8O7pEeO7WM7v8OaTGQ" elementId="com.hydra.project.menuseparator.0"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_66yuAO7pEeO7WM7v8OaTGQ" elementId="com.hydra.project.handledmenuitem.openFileMenuItem" label="Projekt öffnen" iconURI="platform:/plugin/com.hydra.project/icons/16x16/plus.png" tooltip="Öffnet ein existierendes Projekt" command="_VH6iMO7qEeO7WM7v8OaTGQ"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_oWmkoO7qEeO7WM7v8OaTGQ" elementId="com.hydra.project.handledmenuitem.closeFileMenuItem" label="Projekt schließen" iconURI="platform:/plugin/com.hydra.project/icons/16x16/blue-document-export.png" tooltip="Schließt das aktuelle Projekt" command="_RI3aEO7nEeO7WM7v8OaTGQ"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_BdP48O7rEeO7WM7v8OaTGQ" elementId="com.hydra.project.handledmenuitem.deleteFileMenuItem" label="Projekt löschen" iconURI="platform:/plugin/com.hydra.project/icons/16x16/remove.gif" tooltip="Löscht das aktive Projekt" command="_JRM6QO7nEeO7WM7v8OaTGQ"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_NmMAsO7rEeO7WM7v8OaTGQ" elementId="com.hydra.project.handledmenuitem.newFileMenuItem" label="Projekt neu" iconURI="platform:/plugin/com.hydra.project/icons/16x16/new_con.gif" tooltip="Erzeugt ein neues leeres Projekt" command="_ZPkbcO7nEeO7WM7v8OaTGQ"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_5cUicCoREeSWXYdcuuPXPQ" elementId="com.hydra.project.handledmenuitem.saveAsFileMenuItem" label="Projekt speichern unter" iconURI="platform:/plugin/com.hydra.project/icons/16x16/document-save-as.png" tooltip="Speichert unter anderem Namen" command="_lb3PYCoSEeSWXYdcuuPXPQ"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_gHLa8CoYEeSWXYdcuuPXPQ" elementId="com.hydra.project.handledmenuitem.renameFileMenuItem" label="Projekt umbenennen" iconURI="platform:/plugin/com.hydra.project/icons/16x16/folder-rename.png" tooltip="Benennt das Projekt um" command="_oCgvQCoXEeSWXYdcuuPXPQ"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_u7C34CoYEeSWXYdcuuPXPQ" elementId="com.hydra.project.handledmenuitem.copyFileMenuItem" label="Projekt  kopieren" iconURI="platform:/plugin/com.hydra.project/icons/16x16/copy.gif" tooltip="Erstellt ein Kopie des Projektes" command="_vR2q0CoXEeSWXYdcuuPXPQ"/>
+        <children xsi:type="menu:MenuSeparator" xmi:id="_vnQSUO7rEeO7WM7v8OaTGQ" elementId="com.hydra.project.menuseparator.1"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_iMrHEO7sEeO7WM7v8OaTGQ" elementId="com.hydra.project.handledmenuitem.close" label="Anwendung schliessen" iconURI="platform:/plugin/com.hydra.project/icons/16x16/door-open-in.png" command="_2XNQnM3YEeO40b46FSasUA"/>
+      </children>
+      <children xsi:type="menu:Menu" xmi:id="_-l8goO5mEeOLVNZIlh81-A" elementId="com.hydra.project.menu.edit" label="Knoten">
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_lLE2UNq-EeOsL_A0fsOmuA" elementId="com.hydra.project.handledmenuitem.DeleteNode" label="Knoten löschen" iconURI="platform:/plugin/com.hydra.project/icons/16x16/trash.gif" command="_7Eq_0Nq-EeOsL_A0fsOmuA"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_jpZHQO7tEeO7WM7v8OaTGQ" elementId="com.hydra.project.handledmenuitem.newNodeMenuItem" label="Knoten neu" iconURI="platform:/plugin/com.hydra.project/icons/16x16/node-select-next.png" tooltip="Erzeugt neuen Knoten unterhalb des ausgewählten Knotens" command="_g45ZwO7mEeO7WM7v8OaTGQ"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_CSNZkB-UEeSmM59gxeMlew" elementId="com.hydra.project.handledmenuitem.newNodeChildMenuItem" label="Knoten neu Unterebene" iconURI="platform:/plugin/com.hydra.project/icons/16x16/node-delete-next.png" tooltip="Erzeugt neuen Knoten als Kindknoten unterhalb des ausgewählten Knotens" command="_yTeE8B-TEeSmM59gxeMlew"/>
+        <children xsi:type="menu:MenuSeparator" xmi:id="_1PxIEO7tEeO7WM7v8OaTGQ" elementId="com.hydra.project.menuseparator.2"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_2EOD0O7tEeO7WM7v8OaTGQ" elementId="com.hydra.project.handledmenuitem.copyNodeMenuItem" label="Knoten kopieren" iconURI="platform:/plugin/com.hydra.project/icons/16x16/copy.gif" command="_8dnIcO7lEeO7WM7v8OaTGQ"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_CLO48O7uEeO7WM7v8OaTGQ" elementId="com.hydra.project.handledmenuitem.cutNodeMenuitem" label="Knoten ausschneiden" iconURI="platform:/plugin/com.hydra.project/icons/16x16/cut_edit.gif" command="_L3eOYO7mEeO7WM7v8OaTGQ"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_KNxMAO7uEeO7WM7v8OaTGQ" elementId="com.hydra.project.handledmenuitem.pasteNodeMenuitem" label="Knoten einfügen" iconURI="platform:/plugin/com.hydra.project/icons/16x16/clipboard--plus.png" command="_wxTc4O7mEeO7WM7v8OaTGQ"/>
+        <children xsi:type="menu:MenuSeparator" xmi:id="_XR37gO7uEeO7WM7v8OaTGQ" elementId="com.hydra.project.menuseparator.3"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_YleRYO7uEeO7WM7v8OaTGQ" elementId="com.hydra.project.handledmenuitem.nodeUpmenuItem" label="Knoten nach oben" iconURI="platform:/plugin/com.hydra.project/icons/16x16/up.gif" command="_kkCOwO7mEeO7WM7v8OaTGQ"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_hxn34O7uEeO7WM7v8OaTGQ" elementId="com.hydra.project.handledmenuitem.nodeDownMenuItem" label="Knoten nach unten" iconURI="platform:/plugin/com.hydra.project/icons/16x16/Down.GIF" command="_sLTiIO7mEeO7WM7v8OaTGQ"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_o6CsEO7uEeO7WM7v8OaTGQ" elementId="com.hydra.project.handledmenuitem.levelUpMenuItem" label="Knoten Ebene höher" iconURI="platform:/plugin/com.hydra.project/icons/16x16/LevelUp.GIF" command="_cORdsO7mEeO7WM7v8OaTGQ"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_x1WaMO7uEeO7WM7v8OaTGQ" elementId="com.hydra.project.handledmenuitem.levelDownMenuItem" label="Knoten Ebene tiefer" iconURI="platform:/plugin/com.hydra.project/icons/16x16/LevelDown.gif" command="_UkxVsO7mEeO7WM7v8OaTGQ"/>
+        <children xsi:type="menu:MenuSeparator" xmi:id="_839zEO7uEeO7WM7v8OaTGQ" elementId="com.hydra.project.menuseparator.4"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_9lj44O7uEeO7WM7v8OaTGQ" elementId="com.hydra.project.handledmenuitem.refreshMenuItem" label="Aktualisieren" iconURI="platform:/plugin/com.hydra.project/icons/16x16/read_obj.gif" command="_1lm5YO7mEeO7WM7v8OaTGQ"/>
+        <children xsi:type="menu:MenuSeparator" xmi:id="_jaj_EHgUEeWCBepXuDGBrg" elementId="com.hydra.project.menuseparator.5"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_kADRwHgUEeWCBepXuDGBrg" elementId="com.hydra.project.handledmenuitem.knotenstruktur_update" label="Knotenstruktur abgleichen" iconURI="platform:/plugin/com.hydra.project/icons/16x16/blue-folder-tree.png" tooltip="Gleicht die Unterstruktur des Knotens an" command="_P7ewMHgUEeWCBepXuDGBrg"/>
+      </children>
+      <children xsi:type="menu:Menu" xmi:id="_zbz8EJ9CEeSGtYiRcvpZZw" elementId="com.hydra.project.menu.Bearbeiten" label="Bearbeiten"/>
+      <children xsi:type="menu:Menu" xmi:id="_2KBOwJ9CEeSGtYiRcvpZZw" elementId="com.hydra.project.menu.Wizzards" label="Wizzards"/>
+      <children xsi:type="menu:Menu" xmi:id="_nY12sHgNEeWCBepXuDGBrg" elementId="com.hydra.project.menu.Eigenschaft" label="Eigenschaft">
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_vwO_cHgNEeWCBepXuDGBrg" elementId="com.hydra.project.handledmenuitem.eigenschaft_update" label="Einzelnd Abgleichen" iconURI="platform:/plugin/com.hydra.project/icons/16x16/wrench--plus.png" tooltip="Gleicht die Werte einer einzelnen Eigenschaft ab" command="_YZhXsHgNEeWCBepXuDGBrg"/>
+      </children>
+      <children xsi:type="menu:Menu" xmi:id="_5OQb0J9CEeSGtYiRcvpZZw" elementId="com.hydra.project.menu.Parameter" label="Parameter">
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_b87aUJ9DEeSGtYiRcvpZZw" elementId="com.hydra.project.handledmenuitem.parameter_update" label="Einzelnd Abgleichen" iconURI="platform:/plugin/com.hydra.project/icons/16x16/tables.png" tooltip="Gleicht die Werte eines einzelnen Parameters ab" mnemonics="" command="_TniV8HNYEeWOgptnw4M0BA"/>
+      </children>
+      <children xsi:type="menu:Menu" xmi:id="_-V2nwJ9CEeSGtYiRcvpZZw" elementId="com.hydra.project.menu.Import" label="Import">
+        <children xsi:type="menu:Menu" xmi:id="_B1kacJ9EEeSGtYiRcvpZZw" elementId="com.hydra.project.menu.import_eplan" label="Eplan">
+          <children xsi:type="menu:HandledMenuItem" xmi:id="_OxpPUJ9EEeSGtYiRcvpZZw" elementId="com.hydra.project.handledmenuitem.import_eplan_macros" label="Makros"/>
+        </children>
+        <children xsi:type="menu:Menu" xmi:id="_G9wcQJ9EEeSGtYiRcvpZZw" elementId="com.hydra.project.menu.import_inventor" label="Inventor">
+          <children xsi:type="menu:HandledMenuItem" xmi:id="_r6zHMKXSEean3ql1ieGRsg" elementId="com.hydra.project.handledmenuitem.import_inventor_excel" label="Excelstruktur" iconURI="platform:/plugin/com.hydra.project/icons/16x16/Format.gif" tooltip="Läd eine Excel Baumstruktur von Inventor" command="_QbF0UKXTEean3ql1ieGRsg"/>
+        </children>
+        <children xsi:type="menu:Menu" xmi:id="_JnqdwJ9EEeSGtYiRcvpZZw" elementId="com.hydra.project.menu.import_makros" label="Makros"/>
+        <children xsi:type="menu:Menu" xmi:id="_uyRjkOWrEeSvItgvQ4imtw" elementId="com.hydra.project.menu.DynamicsMenue" label="Dynamics">
+          <children xsi:type="menu:HandledMenuItem" xmi:id="_yspHYOWrEeSvItgvQ4imtw" elementId="com.hydra.project.handledmenuitem.ImportMitarbeiter" label="Mitarbeiter" iconURI="platform:/plugin/com.hydra.project/icons/16x16/user-business.png" command="_g-ZZcOWqEeSvItgvQ4imtw"/>
+          <children xsi:type="menu:HandledMenuItem" xmi:id="_695L4OWrEeSvItgvQ4imtw" elementId="com.hydra.project.handledmenuitem.ImportStunden" label="Stunden" iconURI="platform:/plugin/com.hydra.project/icons/16x16/calendar-list.png" command="_sxa7kOWqEeSvItgvQ4imtw"/>
+          <children xsi:type="menu:HandledMenuItem" xmi:id="_dG43AAVUEeWkvoOQ3fgpUQ" elementId="com.hydra.project.handledmenuitem.ImportProjekte" label="Projekte" iconURI="platform:/plugin/com.hydra.project/icons/16x16/sitemap-application-blue.png"/>
+        </children>
+      </children>
+      <children xsi:type="menu:Menu" xmi:id="_ATuCoJ9DEeSGtYiRcvpZZw" elementId="com.hydra.project.menu.Export" label="Export">
+        <children xsi:type="menu:Menu" xmi:id="_T4M5cJ9EEeSGtYiRcvpZZw" elementId="com.hydra.project.menu.export_eplan" label="Eplan">
+          <children xsi:type="menu:HandledMenuItem" xmi:id="_vOOPYJ9EEeSGtYiRcvpZZw" elementId="com.hydra.project.handledmenuitem.export_eplan_makros" label="Makros"/>
+        </children>
+        <children xsi:type="menu:Menu" xmi:id="_nNZMgJ9EEeSGtYiRcvpZZw" elementId="com.hydra.project.menu.export_inventor" label="Inventor"/>
+        <children xsi:type="menu:Menu" xmi:id="_rYmBoJ9EEeSGtYiRcvpZZw" elementId="com.hydra.project.menu.export_makros" label="Makros"/>
+      </children>
+      <children xsi:type="menu:Menu" xmi:id="_7qw6gJ9CEeSGtYiRcvpZZw" elementId="com.hydra.project.menu.Ansicht" label="Ansicht">
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_SMFLUJ9DEeSGtYiRcvpZZw" elementId="com.hydra.project.handledmenuitem.viewer" label="Viewer"/>
+        <children xsi:type="menu:Menu" xmi:id="_i4Y_oAbVEeWiBdzl426Nwg" elementId="com.hydra.project.menu.Perspective" label="Perspektiven" iconURI="platform:/plugin/com.hydra.project/icons/16x16/ui-tab-content.png">
+          <children xsi:type="menu:HandledMenuItem" xmi:id="_FzBK8AbgEeWiBdzl426Nwg" elementId="com.hydra.project.handledmenuitem.Perspective_Standard" label="Standardansicht" iconURI="platform:/plugin/com.hydra.project/icons/16x16/ui-scroll-pane-text.png" tooltip="Zeigt die Standardansicht" command="_yQF94AbfEeWiBdzl426Nwg"/>
+          <children xsi:type="menu:HandledMenuItem" xmi:id="_zToqEAbVEeWiBdzl426Nwg" elementId="com.hydra.project.handledmenuitem.Perspective_ProjectCalendar" label="Projektkalender" iconURI="platform:/plugin/com.hydra.project/icons/16x16/ui-scroll-pane-text.png" tooltip="zeigt einen Projektkalender" type="Radio" command="_fHX9YAbbEeWiBdzl426Nwg"/>
+          <children xsi:type="menu:HandledMenuItem" xmi:id="_wrJbYKUPEeaEapi3sV6tFQ" elementId="com.hydra.project.handledmenuitem.Perspective_Inventor" label="Inventor" iconURI="platform:/plugin/com.hydra.project/icons/16x16/Format.gif" command="_wUo4gKUSEeaEapi3sV6tFQ"/>
+        </children>
+      </children>
+      <children xsi:type="menu:Menu" xmi:id="_2XNQrs3YEeO40b46FSasUA" label="Hilfe">
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_zwQM8KwnEea5gZfy2tt5EA" elementId="com.hydra.project.handledmenuitem.open_settings" label="Einstellungen" iconURI="platform:/plugin/com.hydra.project/icons/16x16/Format.gif" command="_lxbMgKwlEea5gZfy2tt5EA"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_2XNQr83YEeO40b46FSasUA" label="Über Hydra" command="_2XNQps3YEeO40b46FSasUA"/>
+      </children>
+    </mainMenu>
+    <trimBars xmi:id="_2XNQtc3YEeO40b46FSasUA">
+      <children xsi:type="menu:ToolBar" xmi:id="_2XNQts3YEeO40b46FSasUA" elementId="toolbar:org.eclipse.ui.main.toolbar">
+        <children xsi:type="menu:HandledToolItem" xmi:id="_2XNQt83YEeO40b46FSasUA" label="Öffnen" iconURI="platform:/plugin/com.hydra.project/icons/16x16/toc_open.gif" command="_2XNQoM3YEeO40b46FSasUA"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_2XNQuM3YEeO40b46FSasUA" label="Speichern" iconURI="platform:/plugin/com.hydra.project/icons/16x16/save_edit.png" command="_2XNQo83YEeO40b46FSasUA"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_eq0j8M--EeOTyfqPGZXWuw" elementId="com.hydra.project.handledtoolitem.saveAs" label="Speichern unter" iconURI="platform:/plugin/com.hydra.project/icons/16x16/saveas_edit.gif" command="_tbeC8M78EeOmQ_S8_5ux4Q"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_LynLEM7-EeOmQ_S8_5ux4Q" elementId="com.hydra.project.handledtoolitem.close" label="Schließen" iconURI="platform:/plugin/com.hydra.project/icons/16x16/closedBook.gif" command="_2XNQnM3YEeO40b46FSasUA"/>
+        <children xsi:type="menu:ToolBarSeparator" xmi:id="_d3T8ACoWEeSWXYdcuuPXPQ" elementId="com.hydra.project.toolbarseparator.3"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_f4KZcCoWEeSWXYdcuuPXPQ" elementId="com.hydra.project.handledtoolitem.openFileMenuItem" label="Projekt öffnen" iconURI="platform:/plugin/com.hydra.project/icons/16x16/plus.png" tooltip="Öffnet ein existierendes Projekt" command="_VH6iMO7qEeO7WM7v8OaTGQ"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_wyyukCoWEeSWXYdcuuPXPQ" elementId="com.hydra.project.handledtoolitem.closeFileMenuItem" label="Projekt schließen" iconURI="platform:/plugin/com.hydra.project/icons/16x16/blue-document-export.png" tooltip="Schließt das aktuelle Projekt" command="_RI3aEO7nEeO7WM7v8OaTGQ"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_-acQACoWEeSWXYdcuuPXPQ" elementId="com.hydra.project.handledtoolitem.deleteFileMenuItem" label="Projekt löschen" iconURI="platform:/plugin/com.hydra.project/icons/16x16/remove.gif" tooltip="Löscht das aktive Projekt" command="_JRM6QO7nEeO7WM7v8OaTGQ"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_G7aykCoXEeSWXYdcuuPXPQ" elementId="com.hydra.project.handledtoolitem.newFileMenuItem" label="Projekt neu" iconURI="platform:/plugin/com.hydra.project/icons/16x16/new_con.gif" tooltip="Erzeugt ein neues leeres Projekt" command="_ZPkbcO7nEeO7WM7v8OaTGQ"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_TNJC4CoXEeSWXYdcuuPXPQ" elementId="com.hydra.project.handledtoolitem.saveAsFileMenuItem" label="Projekt speichern unter" iconURI="platform:/plugin/com.hydra.project/icons/16x16/document-save-as.png" tooltip="Speichert unter anderem Namen" command="_lb3PYCoSEeSWXYdcuuPXPQ"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_eZ9OsCoZEeSWXYdcuuPXPQ" elementId="com.hydra.project.handledtoolitem.renameFileMenuItem" label="Projekt umbenennen" iconURI="platform:/plugin/com.hydra.project/icons/16x16/folder-rename.png" tooltip="Benennt das Projekt um" command="_oCgvQCoXEeSWXYdcuuPXPQ"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_nyjVwCoZEeSWXYdcuuPXPQ" elementId="com.hydra.project.handledtoolitem.copyFileMenuItem" label="Projekt kopieren" iconURI="platform:/plugin/com.hydra.project/icons/16x16/copy.gif" tooltip="Erstellt ein Kopie des Projektes" command="_vR2q0CoXEeSWXYdcuuPXPQ"/>
+        <children xsi:type="menu:ToolBarSeparator" xmi:id="_DrM3oCoaEeSWXYdcuuPXPQ" elementId="com.hydra.project.toolbarseparator.4"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_EIYi4CoaEeSWXYdcuuPXPQ" elementId="com.hydra.project.handledtoolitem.close" label="Anwendung schliessen" iconURI="platform:/plugin/com.hydra.project/icons/16x16/door-open-in.png" tooltip="Schliesst die Anwendung" command="_2XNQnM3YEeO40b46FSasUA"/>
+      </children>
+    </trimBars>
+  </children>
+  <handlers xmi:id="_2XNQnc3YEeO40b46FSasUA" elementId="com.hydra.project.handler.quitCommand" contributionURI="bundleclass://com.hydra.project/com.hydra.project.handlers.QuitHandler" command="_2XNQnM3YEeO40b46FSasUA"/>
+  <handlers xmi:id="_2XNQoc3YEeO40b46FSasUA" elementId="com.hydra.project.handler.openCommand" contributionURI="bundleclass://com.hydra.project/com.hydra.project.handlers.OpenHandler" command="_2XNQoM3YEeO40b46FSasUA"/>
+  <handlers xmi:id="_2XNQpM3YEeO40b46FSasUA" elementId="com.hydra.project.handler.saveCommand" contributionURI="bundleclass://com.hydra.project/com.hydra.project.handlers.SaveHandler" command="_2XNQo83YEeO40b46FSasUA"/>
+  <handlers xmi:id="_2XNQp83YEeO40b46FSasUA" elementId="com.hydra.project.handler.aboutCommand" contributionURI="bundleclass://com.hydra.project/com.hydra.project.handlers.AboutHandler" command="_2XNQps3YEeO40b46FSasUA"/>
+  <handlers xmi:id="_9pVYsM78EeOmQ_S8_5ux4Q" elementId="com.hydra.project.handler.0" contributionURI="bundleclass://com.hydra.project/com.hydra.project.handlers.SafeAsHandler" command="_tbeC8M78EeOmQ_S8_5ux4Q"/>
+  <handlers xmi:id="_lOYMgNq_EeOsL_A0fsOmuA" elementId="com.hydra.project.handler.deleteNodeHandler" contributionURI="bundleclass://com.hydra.project/com.hydra.project.handlers.DeleteNodeHandler" command="_7Eq_0Nq-EeOsL_A0fsOmuA"/>
+  <handlers xmi:id="_jTTKMO7nEeO7WM7v8OaTGQ" elementId="com.hydra.project.handler.copyNodeHandler" contributionURI="bundleclass://com.hydra.project/com.hydra.project.handlers.CopyNodeHandler" command="_8dnIcO7lEeO7WM7v8OaTGQ"/>
+  <handlers xmi:id="_UsbyAO7oEeO7WM7v8OaTGQ" elementId="com.hydra.project.handler.cutNodeHandler" contributionURI="bundleclass://com.hydra.project/com.hydra.project.handlers.CutNodeHandler" command="_L3eOYO7mEeO7WM7v8OaTGQ"/>
+  <handlers xmi:id="_cr_pkO7oEeO7WM7v8OaTGQ" elementId="com.hydra.project.handler.levelDownHandler" contributionURI="bundleclass://com.hydra.project/com.hydra.project.handlers.LevelDownHandler" command="_UkxVsO7mEeO7WM7v8OaTGQ"/>
+  <handlers xmi:id="_rH3dQO7oEeO7WM7v8OaTGQ" elementId="com.hydra.project.handler.levelUpHandler" contributionURI="bundleclass://com.hydra.project/com.hydra.project.handlers.LevelUpHandler" command="_cORdsO7mEeO7WM7v8OaTGQ"/>
+  <handlers xmi:id="_yllzEO7oEeO7WM7v8OaTGQ" elementId="com.hydra.project.handler.newNodeHandler" contributionURI="bundleclass://com.hydra.project/com.hydra.project.handlers.NewNodeHandler" command="_g45ZwO7mEeO7WM7v8OaTGQ"/>
+  <handlers xmi:id="_5Q9e4O7oEeO7WM7v8OaTGQ" elementId="com.hydra.project.handler.nodeUpHandler" contributionURI="bundleclass://com.hydra.project/com.hydra.project.handlers.NodeUpHandler" command="_kkCOwO7mEeO7WM7v8OaTGQ"/>
+  <handlers xmi:id="_ADVKkO7pEeO7WM7v8OaTGQ" elementId="com.hydra.project.handler.nodeDownHandler" contributionURI="bundleclass://com.hydra.project/com.hydra.project.handlers.NodeDownHandler" command="_sLTiIO7mEeO7WM7v8OaTGQ"/>
+  <handlers xmi:id="_G6nLcO7pEeO7WM7v8OaTGQ" elementId="com.hydra.project.handler.pasteNodeHandler" contributionURI="bundleclass://com.hydra.project/com.hydra.project.handlers.PasteNodeHandler" command="_wxTc4O7mEeO7WM7v8OaTGQ"/>
+  <handlers xmi:id="_OJ41kO7pEeO7WM7v8OaTGQ" elementId="com.hydra.project.handler.refreshHandler" contributionURI="bundleclass://com.hydra.project/com.hydra.project.handlers.RefreshHandler" command="_1lm5YO7mEeO7WM7v8OaTGQ"/>
+  <handlers xmi:id="_VaqUgO7pEeO7WM7v8OaTGQ" elementId="com.hydra.project.handler.deleteFileHandler" contributionURI="bundleclass://com.hydra.project/com.hydra.project.handlers.DeleteFileHandler" command="_JRM6QO7nEeO7WM7v8OaTGQ"/>
+  <handlers xmi:id="_clwpQO7pEeO7WM7v8OaTGQ" elementId="com.hydra.project.handler.closeFileHandler" contributionURI="bundleclass://com.hydra.project/com.hydra.project.handlers.CloseFileHandler" command="_RI3aEO7nEeO7WM7v8OaTGQ"/>
+  <handlers xmi:id="_ixFjEO7pEeO7WM7v8OaTGQ" elementId="com.hydra.project.handler.newFileHandler" contributionURI="bundleclass://com.hydra.project/com.hydra.project.handlers.NewFileHandler" command="_ZPkbcO7nEeO7WM7v8OaTGQ"/>
+  <handlers xmi:id="_Y_kwQO7qEeO7WM7v8OaTGQ" elementId="com.hydra.project.handler.openFileHandler" contributionURI="bundleclass://com.hydra.project/com.hydra.project.handlers.OpenFileHandler" command="_VH6iMO7qEeO7WM7v8OaTGQ"/>
+  <handlers xmi:id="_ChYhMB-YEeSmM59gxeMlew" elementId="com.hydra.project.handler.newNodeChildHandler" contributionURI="bundleclass://com.hydra.project/com.hydra.project.handlers.NewNodeChildHandler" command="_yTeE8B-TEeSmM59gxeMlew"/>
+  <handlers xmi:id="_ty_5cCoSEeSWXYdcuuPXPQ" elementId="com.hydra.project.handler.saveAsFileHandler" contributionURI="bundleclass://com.hydra.project/com.hydra.project.handlers.SaveAsFileHandler" command="_lb3PYCoSEeSWXYdcuuPXPQ"/>
+  <handlers xmi:id="_hGQHwCoXEeSWXYdcuuPXPQ" elementId="com.hydra.project.handler.renameFileHandler" contributionURI="bundleclass://com.hydra.project/com.hydra.project.handlers.RenameFileHandler" command="_oCgvQCoXEeSWXYdcuuPXPQ"/>
+  <handlers xmi:id="_WMcQICoYEeSWXYdcuuPXPQ" elementId="com.hydra.project.handler.copyFileHandler" contributionURI="bundleclass://com.hydra.project/com.hydra.project.handlers.CopyFileHandler" command="_vR2q0CoXEeSWXYdcuuPXPQ"/>
+  <handlers xmi:id="__u8XoIm3EeSk1dr1k5EhDA" elementId="com.hydra.project.handler.copytext" command="_Vd3iMIm4EeSk1dr1k5EhDA"/>
+  <handlers xmi:id="_LDGhkIm6EeSk1dr1k5EhDA" elementId="com.hydra.project.handler.cut" command="_aXo4EIm5EeSk1dr1k5EhDA"/>
+  <handlers xmi:id="_PDemwIm6EeSk1dr1k5EhDA" elementId="com.hydra.project.handler.paste" command="_e8cgAIm5EeSk1dr1k5EhDA"/>
+  <handlers xmi:id="_RmR6sIm6EeSk1dr1k5EhDA" elementId="com.hydra.project.handler.delete" command="_ieylYIm5EeSk1dr1k5EhDA"/>
+  <handlers xmi:id="_4mDBwJ9BEeSGtYiRcvpZZw" elementId="com.hydra.project.handler.Perspective_ProjectCalendar" contributionURI="bundleclass://com.hydra.project/com.hydra.project.command.Perspective_ProjectCalendarCommand" command="_fHX9YAbbEeWiBdzl426Nwg"/>
+  <handlers xmi:id="_xNQ0wOWqEeSvItgvQ4imtw" elementId="com.hydra.project.handler.MitarbeiterHandler" contributionURI="bundleclass://com.hydra.project/com.hydra.project.handlers.OpenMitarbeiterHandler" command="_g-ZZcOWqEeSvItgvQ4imtw"/>
+  <handlers xmi:id="_aDoKQOWrEeSvItgvQ4imtw" elementId="com.hydra.project.handler.StundenHandler" contributionURI="bundleclass://com.hydra.project/com.hydra.project.command.OpenStundenFileCommand" command="_sxa7kOWqEeSvItgvQ4imtw"/>
+  <handlers xmi:id="_qa9KkAVTEeWkvoOQ3fgpUQ" elementId="com.hydra.project.handler.ProjektHandler" contributionURI="bundleclass://com.hydra.project/com.hydra.project.command.OpenProjektFileCommand" command="_5YEqIAVTEeWkvoOQ3fgpUQ"/>
+  <handlers xmi:id="_5JpPoAbfEeWiBdzl426Nwg" elementId="com.hydra.project.handler.Perspective_Standard" contributionURI="bundleclass://com.hydra.project/com.hydra.project.command.Perspective_StandardCommand" command="_yQF94AbfEeWiBdzl426Nwg"/>
+  <handlers xmi:id="_y3NTcHNXEeWOgptnw4M0BA" elementId="com.hydra.project.handler.ParameterUpdateHandler" contributionURI="bundleclass://com.hydra.project/com.hydra.project.handlers.ParameterUpdateHandler" command="_TniV8HNYEeWOgptnw4M0BA"/>
+  <handlers xmi:id="_TIVK4HgNEeWCBepXuDGBrg" elementId="com.hydra.project.handler.EigenschaftUpdateHandler" contributionURI="bundleclass://com.hydra.project/com.hydra.project.handlers.EigenschaftUpdateHandler" command="_YZhXsHgNEeWCBepXuDGBrg"/>
+  <handlers xmi:id="_Y4RFAHgUEeWCBepXuDGBrg" elementId="com.hydra.project.handler.KnotenstrukturUpdateHandler" contributionURI="bundleclass://com.hydra.project/com.hydra.project.handlers.KnotenstrukturUpdateHandler" command="_P7ewMHgUEeWCBepXuDGBrg"/>
+  <handlers xmi:id="_rbV8YKUUEeaEapi3sV6tFQ" elementId="com.hydra.project.handler.Perspective_Inventor" contributionURI="bundleclass://com.hydra.project/com.hydra.project.command.Perspective_InventorCommand" command="_wUo4gKUSEeaEapi3sV6tFQ"/>
+  <handlers xmi:id="_fcDSEKXTEean3ql1ieGRsg" elementId="com.hydra.project.handler.inventor_excel_file_open" contributionURI="bundleclass://com.hydra.project/com.hydra.project.handlers.InventorExcelOpenFileHandler" command="_QbF0UKXTEean3ql1ieGRsg"/>
+  <handlers xmi:id="_qzoiIKwlEea5gZfy2tt5EA" elementId="com.hydra.project.handler.open_settings" contributionURI="bundleclass://com.hydra.project/com.hydra.project.handlers.OpenSettingsHandler" command="_lxbMgKwlEea5gZfy2tt5EA"/>
+  <bindingTables xmi:id="_2XNQns3YEeO40b46FSasUA" bindingContext="_2XNQmc3YEeO40b46FSasUA">
+    <bindings xmi:id="_2XNQn83YEeO40b46FSasUA" keySequence="M1+Q" command="_2XNQnM3YEeO40b46FSasUA"/>
+    <bindings xmi:id="_2XNQos3YEeO40b46FSasUA" keySequence="M1+O" command="_2XNQoM3YEeO40b46FSasUA"/>
+    <bindings xmi:id="_2XNQpc3YEeO40b46FSasUA" keySequence="M1+S" command="_2XNQo83YEeO40b46FSasUA"/>
+    <bindings xmi:id="_2XNQqM3YEeO40b46FSasUA" keySequence="M1+A" command="_2XNQps3YEeO40b46FSasUA"/>
+  </bindingTables>
+  <rootContext xmi:id="_2XNQmc3YEeO40b46FSasUA" elementId="org.eclipse.ui.contexts.dialogAndWindow" name="In Dialog and Windows">
+    <children xmi:id="_2XNQms3YEeO40b46FSasUA" elementId="org.eclipse.ui.contexts.window" name="In Windows"/>
+    <children xmi:id="_2XNQm83YEeO40b46FSasUA" elementId="org.eclipse.ui.contexts.dialog" name="In Dialogs"/>
+  </rootContext>
+  <descriptors xmi:id="_zhX-QPlOEeOt0_I4HDyFXA" elementId="com.hydra.project.partdescriptor.0"/>
+  <commands xmi:id="_2XNQnM3YEeO40b46FSasUA" elementId="org.eclipse.ui.file.exit" commandName="Schließen"/>
+  <commands xmi:id="_2XNQoM3YEeO40b46FSasUA" elementId="com.hydra.project.open" commandName="Öffnen"/>
+  <commands xmi:id="_2XNQo83YEeO40b46FSasUA" elementId="org.eclipse.ui.file.save" commandName="Speichern" description="Speichern"/>
+  <commands xmi:id="_2XNQps3YEeO40b46FSasUA" elementId="org.eclipse.ui.help.aboutAction" commandName="Über Hydra" description="Über Hydra"/>
+  <commands xmi:id="_tbeC8M78EeOmQ_S8_5ux4Q" elementId="org.eclipse.ui.help.safeAsAction" commandName="Speichern unter" description="Speichern unter"/>
+  <commands xmi:id="_7Eq_0Nq-EeOsL_A0fsOmuA" elementId="com.hydra.project.command.deleteNodeCommand" commandName="Knoten löschen" description="Knoten löschen"/>
+  <commands xmi:id="_8dnIcO7lEeO7WM7v8OaTGQ" elementId="com.hydra.project.command.copyNodeCommand" commandName="Knoten kopieren"/>
+  <commands xmi:id="_L3eOYO7mEeO7WM7v8OaTGQ" elementId="com.hydra.project.command.cutNodeCommand" commandName="Knoten ausschneiden"/>
+  <commands xmi:id="_UkxVsO7mEeO7WM7v8OaTGQ" elementId="com.hydra.project.command.levelDownCommand" commandName="Ebene tiefer"/>
+  <commands xmi:id="_cORdsO7mEeO7WM7v8OaTGQ" elementId="com.hydra.project.command.levelUpCommand" commandName="Ebene höher"/>
+  <commands xmi:id="_g45ZwO7mEeO7WM7v8OaTGQ" elementId="com.hydra.project.command.newNodeCommand" commandName="Knoten neu"/>
+  <commands xmi:id="_kkCOwO7mEeO7WM7v8OaTGQ" elementId="com.hydra.project.command.nodeUpCommand" commandName="Knoten nach oben"/>
+  <commands xmi:id="_sLTiIO7mEeO7WM7v8OaTGQ" elementId="com.hydra.project.command.nodeDownCommand" commandName="Knoten nach unten"/>
+  <commands xmi:id="_wxTc4O7mEeO7WM7v8OaTGQ" elementId="com.hydra.project.command.pasteNodeCommand" commandName="Knoten Einfügen"/>
+  <commands xmi:id="_1lm5YO7mEeO7WM7v8OaTGQ" elementId="com.hydra.project.command.refreshCommand" commandName="Aktualisieren"/>
+  <commands xmi:id="_JRM6QO7nEeO7WM7v8OaTGQ" elementId="com.hydra.project.command.deleteFileCommand" commandName="Projekt löschen"/>
+  <commands xmi:id="_RI3aEO7nEeO7WM7v8OaTGQ" elementId="com.hydra.project.command.closeFileCommand" commandName="Projekt schließen"/>
+  <commands xmi:id="_ZPkbcO7nEeO7WM7v8OaTGQ" elementId="com.hydra.project.command.newFileCommand" commandName="Projekt neu"/>
+  <commands xmi:id="_VH6iMO7qEeO7WM7v8OaTGQ" elementId="com.hydra.project.command.openFileCommand" commandName="Projekt öffnen"/>
+  <commands xmi:id="_yTeE8B-TEeSmM59gxeMlew" elementId="com.hydra.project.command.newNodeChildCommand" commandName="Knoten neu Unterebene"/>
+  <commands xmi:id="_lb3PYCoSEeSWXYdcuuPXPQ" elementId="com.hydra.project.command.saveAsFileCommand" commandName="Projekt speichern unter"/>
+  <commands xmi:id="_oCgvQCoXEeSWXYdcuuPXPQ" elementId="com.hydra.project.command.renameFileCommand" commandName="Projekt umbenennen"/>
+  <commands xmi:id="_vR2q0CoXEeSWXYdcuuPXPQ" elementId="com.hydra.project.command.copyFileCommand" commandName="Projekt kopieren"/>
+  <commands xmi:id="_Vd3iMIm4EeSk1dr1k5EhDA" elementId="org.eclipse.ui.edit.copy " commandName="Kopieren"/>
+  <commands xmi:id="_aXo4EIm5EeSk1dr1k5EhDA" elementId="org.eclipse.ui.edit.cut" commandName="Ausschneiden"/>
+  <commands xmi:id="_e8cgAIm5EeSk1dr1k5EhDA" elementId="org.eclipse.ui.edit.paste" commandName="Einfügen"/>
+  <commands xmi:id="_ieylYIm5EeSk1dr1k5EhDA" elementId="org.eclipse.ui.edit.delete" commandName="Löschen"/>
+  <commands xmi:id="_g-ZZcOWqEeSvItgvQ4imtw" elementId="com.hydra.project.command.MitarbeiterCommand" commandName="Mitarbeiter importieren"/>
+  <commands xmi:id="_sxa7kOWqEeSvItgvQ4imtw" elementId="com.hydra.project.command.StundenCommand" commandName="Stunden importieren"/>
+  <commands xmi:id="_5YEqIAVTEeWkvoOQ3fgpUQ" elementId="com.hydra.project.command.ProjektCommand" commandName="Projekte importieren"/>
+  <commands xmi:id="_fHX9YAbbEeWiBdzl426Nwg" elementId="com.hydra.project.command.Perspective_ProjectCalendar" commandName="Perspektive Projektkalender "/>
+  <commands xmi:id="_TniV8HNYEeWOgptnw4M0BA" elementId="com.hydra.project.command.ParameterUpdateCommand" commandName="Parameter abgleichen"/>
+  <commands xmi:id="_yQF94AbfEeWiBdzl426Nwg" elementId="com.hydra.project.command.Perspective_Standard" commandName="Perspektive Standard"/>
+  <commands xmi:id="_wUo4gKUSEeaEapi3sV6tFQ" elementId="com.hydra.project.command.Perspective.Inventor" commandName="Perspektive Inventor"/>
+  <commands xmi:id="_YZhXsHgNEeWCBepXuDGBrg" elementId="com.hydra.project.command.EigenschaftUpdateCommand" commandName="Eigenschaft abgleichen"/>
+  <commands xmi:id="_P7ewMHgUEeWCBepXuDGBrg" elementId="com.hydra.project.command.KnotenstrukturUpdateCommand" commandName="Knotenstruktur abgleichen"/>
+  <commands xmi:id="_QbF0UKXTEean3ql1ieGRsg" elementId="com.hydra.project.command.inventor_open_excel_file" commandName="Inventor Excel Struktur öffnen"/>
+  <commands xmi:id="_lxbMgKwlEea5gZfy2tt5EA" elementId="com.hydra.project.command.open_settings" commandName="Einstellungen"/>
+  <addons xmi:id="_2XNQks3YEeO40b46FSasUA" elementId="org.eclipse.e4.core.commands.service" contributionURI="bundleclass://org.eclipse.e4.core.commands/org.eclipse.e4.core.commands.CommandServiceAddon"/>
+  <addons xmi:id="_2XNQk83YEeO40b46FSasUA" elementId="org.eclipse.e4.ui.contexts.service" contributionURI="bundleclass://org.eclipse.e4.ui.services/org.eclipse.e4.ui.services.ContextServiceAddon"/>
+  <addons xmi:id="_2XNQlM3YEeO40b46FSasUA" elementId="org.eclipse.e4.ui.bindings.service" contributionURI="bundleclass://org.eclipse.e4.ui.bindings/org.eclipse.e4.ui.bindings.BindingServiceAddon"/>
+  <addons xmi:id="_2XNQlc3YEeO40b46FSasUA" elementId="org.eclipse.e4.ui.workbench.commands.model" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.CommandProcessingAddon"/>
+  <addons xmi:id="_2XNQls3YEeO40b46FSasUA" elementId="org.eclipse.e4.ui.workbench.handler.model" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.HandlerProcessingAddon"/>
+  <addons xmi:id="_2XNQl83YEeO40b46FSasUA" elementId="org.eclipse.e4.ui.workbench.contexts.model" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.ContextProcessingAddon"/>
+  <addons xmi:id="_2XNQmM3YEeO40b46FSasUA" elementId="org.eclipse.e4.ui.workbench.bindings.model" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.swt/org.eclipse.e4.ui.workbench.swt.util.BindingProcessingAddon"/>
+</application:Application>
