@@ -16,8 +16,39 @@ import org.eclipse.swt.widgets.Shell;
  *
  */
 public class pathControl {
-
-	public static String checkPath(Shell shell, String path, String subject){
+	
+	  /**
+	 * Überprüft, ob die Datei vorhanden ist.
+     * @author Poehler
+     * @param path der aktuelle Pfad
+     * @param subject der Dateiname ohne Endung
+     * @return flag der ausgewählte Pfad
+     */
+	public static Boolean checkPath(String path, String subject){
+		File file = null;
+		Boolean flag = false;
+		if (!path.isEmpty()){
+			file = new File(path);
+			if (file.exists()){
+				if (file.isFile()){
+					if (file.getName() == subject + ".DB4O"){
+						flag = true;
+					}
+				}
+			}
+		}
+		return flag;	
+	}
+	
+	  /**
+     * @author Poehler
+     * @param shell die aktuelle Shell
+     * @param path der aktuelle Pfad
+     * @param subject der Dateiname ohne Endung
+     * @return fileName der ausgewählte Pfad
+     *
+     */
+	public static String selectPath(Shell shell, String path, String subject){
 		File file = null;
 		
 //		switch (subject){
@@ -44,13 +75,15 @@ public class pathControl {
 		fileDialog.setText(subject + ": Pfad einstellen.");
 
 		// We store the selected file name in fileName
-		String fileName = null;
+		String fileName = "C:/Hydra/" + subject + ".DB4O";
 
 		boolean done = false;
 		while (!done) {
 	    // Open the File Dialog
 			fileName = fileDialog.open();
-
+			if (fileName == null){
+				fileName = "C:/Hydra/" + subject + ".DB4O";
+			}
 			if(fileName.isEmpty()){
 				fileName = "C:/Hydra/" + subject + ".DB4O";
 			}
