@@ -21,6 +21,7 @@ import org.eclipse.swt.widgets.Shell;
 
 import com.hydra.project.model.MyTreeItem;
 import com.hydra.project.model.TreeTools;
+import com.hydra.project.nebula.TreeMapperUIConfigProvider;
 import com.hydra.project.parts.LogfileView;
 
 import java.util.Iterator;
@@ -33,7 +34,7 @@ import org.eclipse.jface.viewers.ITableLabelProvider;
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.jface.viewers.Viewer;
-import org.eclipse.nebula.widgets.treemapper.TreeMapperUIConfigProvider;
+//import org.eclipse.nebula.widgets.treemapper.TreeMapperUIConfigProvider;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.graphics.RGB;

@@ -17,7 +17,7 @@ import org.eclipse.e4.ui.di.UIEventTopic;
 import org.eclipse.e4.ui.model.application.ui.MDirtyable;
 import org.eclipse.e4.ui.services.IServiceConstants;
 import org.eclipse.jface.viewers.TableViewer;
-import org.eclipse.nebula.widgets.datechooser.DateChooser;
+//import org.eclipse.nebula.widgets.datechooser.DateChooser;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.CTabFolder;
 import org.eclipse.swt.custom.CTabItem;
@@ -55,6 +55,7 @@ import com.hydra.project.model.MyTasksModel;
 import com.hydra.project.model.MyTreeItem;
 import com.hydra.project.model.MyVorgangTools;
 import com.hydra.project.model.TasksTools;
+import com.hydra.project.nebula.DateChooser;
 
 public class CopyOfProjectCalendarView {
 

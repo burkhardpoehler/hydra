@@ -19,7 +19,7 @@ import org.eclipse.e4.ui.di.UIEventTopic;
 import org.eclipse.e4.ui.model.application.ui.MDirtyable;
 import org.eclipse.e4.ui.services.IServiceConstants;
 import org.eclipse.jface.viewers.TableViewer;
-import org.eclipse.nebula.widgets.datechooser.DateChooser;
+//import org.eclipse.nebula.widgets.datechooser.DateChooser;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.CTabFolder;
 import org.eclipse.swt.custom.CTabItem;
@@ -50,17 +50,18 @@ import org.eclipse.wb.swt.SWTResourceManager;
 import swing2swt.layout.BorderLayout;
 
 import com.hydra.project.database.DBMitarbeiterTools;
-import com.hydra.project.database.DBSettingsTools;
+import com.hydra.project.database.DBUserSettings;
 import com.hydra.project.editors.ComboBoxTools;
 import com.hydra.project.model.AktiveTasksFilter;
 import com.hydra.project.model.MyMitarbeiter;
-import com.hydra.project.model.MySettings;
+import com.hydra.project.model.MyUserSettings;
 import com.hydra.project.model.MyTasksModel;
 import com.hydra.project.model.MyTreeItem;
 import com.hydra.project.model.MyViewers;
 import com.hydra.project.model.MyVorgangTools;
 import com.hydra.project.model.TasksTools;
 import com.hydra.project.model.TreeTools;
+import com.hydra.project.nebula.DateChooser;
 
 public class ProjectCalendarView {
 
@@ -160,7 +161,7 @@ public class ProjectCalendarView {
 	private static ArrayList<MyTasksModel> tasks = new ArrayList<MyTasksModel>();
 	public static ScrolledComposite scrolledCompositeKalender;
 	public static Composite cmpKalenderTabelle;
-	private Text textDatum;
+	private static Text textDatum;
 	private static Boolean AlleStundenAnzeigen = true;
 	
 	private static String nameFilter = "kein Filter";
@@ -174,8 +175,11 @@ public class ProjectCalendarView {
 	static MyTreeItem mySelectedTreeItem = null;
 	private static final String VIEWERPARAMETERID ="P101.001.002";
 	private static MyTreeItem myTopEntryTreeItem = null;
-	private static Boolean viewerActive = false;
+	private static Boolean viewerFullActive = false;
+	private static Boolean viewerEmptyActive = false;
 	private static Composite firstParent;
+	private static Composite parentFull;
+	private static Composite parentEmpty;
 	
 	
 //	private static List arrayListVorgang =new ArrayList<String>();
@@ -206,52 +210,13 @@ public class ProjectCalendarView {
 	@PostConstruct
 	private static  void createControls(Composite parent) {
 		firstParent = parent;
-	    //prüfen, ob Ansicht benötigt wird
-		if (checkInput(parent)){
+		if (!viewerFullActive){
 			createViewer(parent);
+			viewerFullActive = true;
 		}
-		
-//		MyViewers myViewers = LifeCycleManager.getMyViewers();
-//		if (myViewers.getProjectCalendarViewer()){
-//			createViewer(parent);
-//	    }else{
-//	    	createEmptyViewer(parent);
-//	    }
 
 	}
 	
-	public static void restartControls() {
-		createControls(firstParent);
-	}
-
-	  /**
-     * @author Poehler
-     * Prüft, ob der aktuelle Knoten brauchbar ist für eine Anzeige
-     */
-    public static Boolean checkInput(Composite parent) {
-    	Boolean flag = false;
-    	if (mySelectedTreeItem != null) {
-    		MyTreeItem mySeachTreeItem = TreeTools.searchUpwardsForTreeItemParameter(mySelectedTreeItem, VIEWERPARAMETERID);
-    		
-    		if (mySeachTreeItem != null) {
-    			myTopEntryTreeItem = mySeachTreeItem;
-    			flag = true;
-				viewerActive = true;
-			}
-		}else{
-			parent.setLayout(new GridLayout());
-			parent.setLayoutData(new GridData(GridData.FILL_BOTH | GridData.HORIZONTAL_ALIGN_BEGINNING));
-			Label label = new Label (parent, SWT.NONE);
-			label.setText("Keine Daten zur Anzeige vorhanden.");
-			viewerActive = false;
-		}
-		return flag;	
-    }
-	
-    private static void createEmptyViewer(Composite parent) {
-    	EmptyView emptyView = new EmptyView();
-    	emptyView.createControls(parent);
-	}
 
 	private static void createViewer(Composite parent) {
 		
@@ -456,113 +421,113 @@ public class ProjectCalendarView {
 		
 		// Erstellt alle Elemente für das Filter
 		MyVorgangTools.stundenFilterbereichErstellen(cmpKalenderOben);
-//#######################################################		
+//#######################################################//test		
 		
-//		Label lblName = new Label(cmpKalenderOben, SWT.NONE);
-//		lblName.setBounds(20, 9, 32, 15);
-//		lblName.setText("Name");
-//		
-//		Combo comboName = new Combo(cmpKalenderOben, SWT.NONE);
-//		comboName.setBounds(78, 6, 136, 23);
-//		
-//		Label lblVorgang = new Label(cmpKalenderOben, SWT.NONE);
-//		lblVorgang.setBounds(20, 40, 45, 15);
-//		lblVorgang.setText("Vorgang");
-//		
-//		comboVorgang = new Combo(cmpKalenderOben, SWT.NONE);
-//		comboVorgang.setBounds(78, 37, 136, 23);
-//		comboVorgang.addSelectionListener(new SelectionListener(){
-//			@Override
-//			public void widgetSelected(SelectionEvent e) {
-//				Combo t = (Combo) e.getSource();
-//				LogfileView.log(thisClass,"Vorgang wurde geändert in:" + t.getText());
-//				updateTreeItem(VORGANG, t.getText());
-//				}
-//			@Override
-//			public void widgetDefaultSelected(SelectionEvent e) {
-//				}		
-//		});
-//		
-//		Label lblStunden = new Label(cmpKalenderOben, SWT.NONE);
-//		lblStunden.setBounds(514, 9, 44, 15);
-//		lblStunden.setText("Stunden");
-//
-//		txtStunden = new Text(cmpKalenderOben, SWT.BORDER);
-//		txtStunden.setBounds(768, 7, 76, 21);
-//		txtStunden.setBounds(564, 6, 45, 21);
-//		txtStunden.addFocusListener(new FocusListener(){
-//			@Override
-//			public void focusGained(FocusEvent e) {
-//			}
-//			@Override
-//			public void focusLost(FocusEvent e) {
-//				Text t = (Text) e.getSource();
-//				LogfileView.log(thisClass,"Stunden wurde geändert in:" + t.getText());
-//				updateTreeItem(STUNDEN, t.getText());
-//			}		
-//		});
-//		
-//		Button btnVorgangUebernehmen = new Button(cmpKalenderOben, SWT.NONE);
-//		btnVorgangUebernehmen.setBounds(710, 4, 128, 25);
-//		btnVorgangUebernehmen.setText("Vorgang \u00FCbernehmen");
-//
-//		Button btnVorgangLoeschen = new Button(cmpKalenderOben, SWT.NONE);
-//		btnVorgangLoeschen.setBounds(710, 35, 127, 25);
-//		btnVorgangLoeschen.setText("Vorgang l\u00F6schen");
-//
-//		final Button btnAlleAnzeigen = new Button(cmpKalenderOben, SWT.TOGGLE);
-//		btnAlleAnzeigen.setBounds(479, 68, 94, 20);
-//		btnAlleAnzeigen.setText("Alle anzeigen");
-//		btnAlleAnzeigen.addSelectionListener(new SelectionListener(){
-//			@Override
-//			public void widgetSelected(SelectionEvent e) {
-//					if (btnAlleAnzeigen.getSelection()) {
-//						setAlleStundenAnzeigen(false);
-//						btnAlleAnzeigen.setText("Alle anzeigen");
-//						MyVorgangTools.updateViewer();
-//					}else{
-//						setAlleStundenAnzeigen(true);
-//						btnAlleAnzeigen.setText("Tagesfilter aktiv");
-//						MyVorgangTools.updateViewer();
-//					}
-//				}
-//			@Override
-//			public void widgetDefaultSelected(SelectionEvent e) {
-//				}		
-//		});
-//
-//		
-//		
-//		Label lblDatum = new Label(cmpKalenderOben, SWT.NONE);
-//		lblDatum.setBounds(253, 73, 36, 15);
-//		lblDatum.setText("Datum");
-//		textDatum = new Text(cmpKalenderOben, SWT.BORDER);
-//		textDatum.setBounds(340, 67, 128, 21);
-//		textDatum.setEnabled(false);
-//		textDatum.setEditable(false);
-//		textDatum.setText(txtAktuelleDatum);
-//		
-//		Label lblProjekt_1 = new Label(cmpKalenderOben, SWT.NONE);
-//		lblProjekt_1.setBounds(20, 73, 55, 15);
-//		lblProjekt_1.setText("Projekt");
-//		
-//		Combo comboProjekt_1 = new Combo(cmpKalenderOben, SWT.NONE);
-//		comboProjekt_1.setBounds(78, 70, 136, 23);
-//		
-//		Label lblKostentraeger1 = new Label(cmpKalenderOben, SWT.NONE);
-//		lblKostentraeger1.setBounds(253, 9, 81, 15);
-//		lblKostentraeger1.setText("Kostentr\u00E4ger");
-//		
-//		Label lblKostenstelle = new Label(cmpKalenderOben, SWT.NONE);
-//		lblKostenstelle.setBounds(251, 40, 70, 15);
-//		lblKostenstelle.setText("Kostenstelle");
-//		
-//		Combo comboKostenträger = new Combo(cmpKalenderOben, SWT.NONE);
-//		comboKostenträger.setBounds(340, 6, 128, 23);
-//		
-//		Combo comboKostenstelle = new Combo(cmpKalenderOben, SWT.NONE);
-//		comboKostenstelle.setBounds(340, 37, 128, 23);
-//		
+		Label lblName = new Label(cmpKalenderOben, SWT.NONE);
+		lblName.setBounds(20, 9, 32, 15);
+		lblName.setText("Name");
+		
+		Combo comboName = new Combo(cmpKalenderOben, SWT.NONE);
+		comboName.setBounds(78, 6, 136, 23);
+		
+		Label lblVorgang = new Label(cmpKalenderOben, SWT.NONE);
+		lblVorgang.setBounds(20, 40, 45, 15);
+		lblVorgang.setText("Vorgang");
+		
+		comboVorgang = new Combo(cmpKalenderOben, SWT.NONE);
+		comboVorgang.setBounds(78, 37, 136, 23);
+		comboVorgang.addSelectionListener(new SelectionListener(){
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				Combo t = (Combo) e.getSource();
+				LogfileView.log(thisClass,"Vorgang wurde geändert in:" + t.getText());
+				updateTreeItem(VORGANG, t.getText());
+				}
+			@Override
+			public void widgetDefaultSelected(SelectionEvent e) {
+				}		
+		});
+		
+		Label lblStunden = new Label(cmpKalenderOben, SWT.NONE);
+		lblStunden.setBounds(514, 9, 44, 15);
+		lblStunden.setText("Stunden");
+
+		txtStunden = new Text(cmpKalenderOben, SWT.BORDER);
+		txtStunden.setBounds(768, 7, 76, 21);
+		txtStunden.setBounds(564, 6, 45, 21);
+		txtStunden.addFocusListener(new FocusListener(){
+			@Override
+			public void focusGained(FocusEvent e) {
+			}
+			@Override
+			public void focusLost(FocusEvent e) {
+				Text t = (Text) e.getSource();
+				LogfileView.log(thisClass,"Stunden wurde geändert in:" + t.getText());
+				updateTreeItem(STUNDEN, t.getText());
+			}		
+		});
+		
+		Button btnVorgangUebernehmen = new Button(cmpKalenderOben, SWT.NONE);
+		btnVorgangUebernehmen.setBounds(710, 4, 128, 25);
+		btnVorgangUebernehmen.setText("Vorgang \u00FCbernehmen");
+
+		Button btnVorgangLoeschen = new Button(cmpKalenderOben, SWT.NONE);
+		btnVorgangLoeschen.setBounds(710, 35, 127, 25);
+		btnVorgangLoeschen.setText("Vorgang l\u00F6schen");
+
+		final Button btnAlleAnzeigen = new Button(cmpKalenderOben, SWT.TOGGLE);
+		btnAlleAnzeigen.setBounds(479, 68, 94, 20);
+		btnAlleAnzeigen.setText("Alle anzeigen");
+		btnAlleAnzeigen.addSelectionListener(new SelectionListener(){
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+					if (btnAlleAnzeigen.getSelection()) {
+						setAlleStundenAnzeigen(false);
+						btnAlleAnzeigen.setText("Alle anzeigen");
+						MyVorgangTools.updateViewer();
+					}else{
+						setAlleStundenAnzeigen(true);
+						btnAlleAnzeigen.setText("Tagesfilter aktiv");
+						MyVorgangTools.updateViewer();
+					}
+				}
+			@Override
+			public void widgetDefaultSelected(SelectionEvent e) {
+				}		
+		});
+
+		
+		
+		Label lblDatum = new Label(cmpKalenderOben, SWT.NONE);
+		lblDatum.setBounds(253, 73, 36, 15);
+		lblDatum.setText("Datum");
+		textDatum = new Text(cmpKalenderOben, SWT.BORDER);
+		textDatum.setBounds(340, 67, 128, 21);
+		textDatum.setEnabled(false);
+		textDatum.setEditable(false);
+		textDatum.setText(txtAktuelleDatum);
+		
+		Label lblProjekt_1 = new Label(cmpKalenderOben, SWT.NONE);
+		lblProjekt_1.setBounds(20, 73, 55, 15);
+		lblProjekt_1.setText("Projekt");
+		
+		Combo comboProjekt_1 = new Combo(cmpKalenderOben, SWT.NONE);
+		comboProjekt_1.setBounds(78, 70, 136, 23);
+		
+		Label lblKostentraeger1 = new Label(cmpKalenderOben, SWT.NONE);
+		lblKostentraeger1.setBounds(253, 9, 81, 15);
+		lblKostentraeger1.setText("Kostentr\u00E4ger");
+		
+		Label lblKostenstelle = new Label(cmpKalenderOben, SWT.NONE);
+		lblKostenstelle.setBounds(251, 40, 70, 15);
+		lblKostenstelle.setText("Kostenstelle");
+		
+		Combo comboKostenträger = new Combo(cmpKalenderOben, SWT.NONE);
+		comboKostenträger.setBounds(340, 6, 128, 23);
+		
+		Combo comboKostenstelle = new Combo(cmpKalenderOben, SWT.NONE);
+		comboKostenstelle.setBounds(340, 37, 128, 23);
+		
 //##################################################		
 
 		
@@ -1005,10 +970,21 @@ public class ProjectCalendarView {
 	void myEventReceiver(@UIEventTopic("MyTreeItemEvent") MyTreeItem myTreeItem) {
 	    // empfängt geänderte Objekte mit dem Topic 'MyTreeItemEvent'
 		LogfileView.log(this.getClass(),"Nachricht in ProjectCalendarView empfangen "+ myTreeItem.getVariablenWert());
-		
+		mySelectedTreeItem = myTreeItem;
+		reactOnSelectionOrEvent(myTreeItem);
+	}
+	
+	@ Inject
+	public void setSelection (@ Named (IServiceConstants.ACTIVE_SELECTION) @ Optional MyTreeItem myTreeItem) {
+		LogfileView.log(this.getClass(), "Neue Selektion in ProjektCalenderViewer empfangen.");
+		mySelectedTreeItem = myTreeItem;
+		reactOnSelectionOrEvent(myTreeItem);
+	}
+	
+	private void reactOnSelectionOrEvent(MyTreeItem myTreeItem){
 		mySelectedTreeItem = myTreeItem;
 		if (firstParent != null) {
-			if (checkInput(firstParent)) {
+//			if (checkInput(firstParent)) {
 				if (myTreeItem != null) {
 					MyTreeItem myNewSelectedTreeItem = searchProjectCalendarKnoten(myTreeItem);
 					
@@ -1022,23 +998,8 @@ public class ProjectCalendarView {
 						MyVorgangTools.kalenderErstellen();
 					}
 				}	
-			}
+//			}
 		}	
-	}
-	
-	@ Inject
-	public void setSelection (@ Named (IServiceConstants.ACTIVE_SELECTION) @ Optional MyTreeItem myTreeItem) {
-		if (myTreeItem != null) {
-			MyTreeItem myNewSelectedTreeItem = searchProjectCalendarKnoten(myTreeItem);
-				if(myNewSelectedTreeItem == null){	//kein Kalenderknoten
-					//nichts tun
-				}else {	//grundsätzlich alle Werte aktualisieren
-					tasks.clear();			//Taskliste leeren
-					updateViewer(myNewSelectedTreeItem);
-					TasksTools.TabelleAktualisieren();
-				}
-		}	
-
 	}
 	
 	/**
@@ -1047,7 +1008,7 @@ public class ProjectCalendarView {
 	 * @param myTreeItem der Startknoten
 	 * @return myTreeItem der gefundene Knoten oder NULL wenn nicht vorhanden
 	 */
-	private  MyTreeItem searchProjectCalendarKnoten(MyTreeItem myTreeItem){
+	private static  MyTreeItem searchProjectCalendarKnoten(MyTreeItem myTreeItem){
 		MyTreeItem myNewTreeItem = null;
 		//wenn ein Strukturknoten gefunden wird, gibt es keinen ProjectCalenderKnoten 
 		if(myTreeItem.isStrukturknoten()){
@@ -1070,7 +1031,7 @@ public class ProjectCalendarView {
 	 * @author Burkhard Pöhler
 	 * @param myTreeItem der oberste Kalenderknoten
 	 */
-	private void updateViewer(MyTreeItem myTreeItem){
+	private static void updateViewer(MyTreeItem myTreeItem){
 		updateValue(myTreeItem);
 		if (myTreeItem.getParameter().equals(ARBEITSSCHRITT)){
 			ErzeugeEintragInTasksListe(myTreeItem);	//Taskliste füllen
@@ -1158,7 +1119,7 @@ public class ProjectCalendarView {
 	 * @author Burkhard Pöhler
 	 * @param myTreeItem der Parameter
 	 */
-	private void updateValue(MyTreeItem myTreeItem){
+	private static void updateValue(MyTreeItem myTreeItem){
 		LogfileView.log(thisClass,"Update Parameter " + myTreeItem.getParameter() +" = "+ myTreeItem.getBezeichnung() +" : "+ myTreeItem.getVariablenWert());
 		if (myTreeItem != null) {
 			switch (myTreeItem.getParameter()) {

@@ -12,6 +12,9 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 import com.hydra.project.model.MyTreeItem;
+import com.hydra.project.nebula.INewMappingListener;
+import com.hydra.project.nebula.ISemanticTreeMapperSupport;
+import com.hydra.project.nebula.TreeMapperUIConfigProvider;
 
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
@@ -43,10 +46,10 @@ import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.TreeExpansionEvent;
 import org.eclipse.jface.viewers.TreeViewer;
-import org.eclipse.nebula.widgets.treemapper.INewMappingListener;
-import org.eclipse.nebula.widgets.treemapper.ISemanticTreeMapperSupport;
-import org.eclipse.nebula.widgets.treemapper.internal.*;
-import org.eclipse.nebula.widgets.treemapper.TreeMapperUIConfigProvider;
+//import org.eclipse.nebula.widgets.treemapper.INewMappingListener;
+//import org.eclipse.nebula.widgets.treemapper.ISemanticTreeMapperSupport;
+//import org.eclipse.nebula.widgets.treemapper.internal.*;
+//import org.eclipse.nebula.widgets.treemapper.TreeMapperUIConfigProvider;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.SashForm;
 import org.eclipse.swt.dnd.DND;

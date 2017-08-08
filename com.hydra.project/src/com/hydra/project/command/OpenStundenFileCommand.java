@@ -3,6 +3,7 @@ package com.hydra.project.command;
 import java.io.IOException;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.FileDialog;
+import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.swt.widgets.Shell;
 import com.hydra.project.database.DBStundenTools;
 import com.hydra.project.model.MyTreeItem;
@@ -16,7 +17,7 @@ public class OpenStundenFileCommand {
 		fileDialog.setFilterPath("C:/");
 		fileDialog.setFilterExtensions(new String[] { "*.XLS; *.XLSX" });
 		fileDialog.setFilterNames(new String[] { "Stunden (*.XLS *.XLSX)" });
-		fileDialog.setText("Exceldatei mit Stunden öffnen");
+		fileDialog.setText("Dynamics Exceldatei mit Stunden öffnen");
 
 		// We store the selected file name in fileName
 		String fileName = null;
@@ -35,10 +36,16 @@ public class OpenStundenFileCommand {
 	        } else {
 //		        if (!fileName.endsWith(".XLS")) fileName = fileName+".XLS";
 		        try {
-					DBStundenTools.DatenbankFüllen(fileName);
-					done = true;
+		        	String status = DBStundenTools.DatenbankFüllen(fileName);
+		        	if (!status.equals("OK")){
+		        		//Fehlermeldung ausgeben
+		        		MessageBox mb = new MessageBox(shell, SWT.ICON_WARNING|SWT.CANCEL);
+		        		mb.setMessage(status);
+		        		mb.open();
+		        	}
+					if (status.equals("OK"))done = true;
 				} catch (IOException e) {
-					LogfileView.log(thisClass,"Exceltabelle konte nicht geöffnet werden",SWT.ICON_ERROR);
+					LogfileView.log(thisClass,"Exceltabelle konnte nicht geöffnet werden",SWT.ICON_ERROR);
 					e.printStackTrace();
 				}
 	        }

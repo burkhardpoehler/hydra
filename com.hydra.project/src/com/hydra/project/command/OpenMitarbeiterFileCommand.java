@@ -21,7 +21,7 @@ public class OpenMitarbeiterFileCommand {
 		fileDialog.setFilterPath("C:/");
 		fileDialog.setFilterExtensions(new String[] { "*.XLS; *.XLSX" });
 		fileDialog.setFilterNames(new String[] { "Mitarbeiter (*.XLS *.XLSX)" });
-		fileDialog.setText("Exceldatei mit Mitarbeitern öffnen");
+		fileDialog.setText("Dynamics Exceldatei mit Mitarbeitern öffnen");
 
 		// We store the selected file name in fileName
 		String fileName = null;

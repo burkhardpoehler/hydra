@@ -14,8 +14,12 @@ import java.util.Collection;
 import java.util.HashSet;
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.Viewer;
+
 import com.hydra.projects.XViewer.Main.model.IMyTreeTask;
 import com.hydra.projects.XViewer.Main.model.MyTreeTask;
+
+//import com.hydra.project.Viewer_Mitarbeiter.IMyTreeTask;
+//import com.hydra.project.Viewer_Mitarbeiter.MyTreeTask;
 
 /**
  * Content provider for example XViewer implementation
@@ -41,9 +45,9 @@ public class MyXViewerContentProvider implements ITreeContentProvider {
       if (parentElement instanceof Collection) {
          return ((Collection) parentElement).toArray();
       }
-//      if (parentElement instanceof MyTreeTask) {
-//         return ((MyTreeTask) parentElement).getMyList().toArray();
-//      }
+      if (parentElement instanceof MyTreeTask) {
+         return ((MyTreeTask) parentElement).getMyList().toArray();
+      }
       return EMPTY_ARRAY;
    }
 

@@ -11,6 +11,9 @@ public class MyMitarbeiter {
 	private long satz;
 	private String nummer;
 	private String name;
+	private String basiseinheit;
+	private String produktbuchungsgruppe;
+	private String art;
 	private String titel;
 	private String position;
 	private String firma;
@@ -19,6 +22,8 @@ public class MyMitarbeiter {
 	private Date geändertAm;
 	private String geändertDurch;
 	private Date buchungsdatum;
+	private Boolean aktiv;
+	private Boolean sonderposten;
 	
 	/**
 	 * @param mitarbeiternummer
@@ -27,6 +32,7 @@ public class MyMitarbeiter {
 //		super();
 		initialize();
 		nummer = mitarbeiternummer;
+		
 	}
 
 	/**
@@ -49,7 +55,8 @@ public class MyMitarbeiter {
 		this.geändertDurch ="";
 		this.geändertAm = new Date();
 		this.buchungsdatum = new Date();
-		
+		this.setAktiv(true);
+		this.setSonderposten(false);
 	}
 	
 	
@@ -210,6 +217,76 @@ public class MyMitarbeiter {
 	 */
 	public void setSatz(long satz) {
 		this.satz = satz;
+	}
+
+	/**
+	 * @return the basiseinheit
+	 */
+	public String getBasiseinheit() {
+		return basiseinheit;
+	}
+
+	/**
+	 * @param basiseinheit the basiseinheit to set
+	 */
+	public void setBasiseinheit(String basiseinheit) {
+		this.basiseinheit = basiseinheit;
+	}
+
+	/**
+	 * @return the produktbuchungsgruppe
+	 */
+	public String getProduktbuchungsgruppe() {
+		return produktbuchungsgruppe;
+	}
+
+	/**
+	 * @param produktbuchungsgruppe the produktbuchungsgruppe to set
+	 */
+	public void setProduktbuchungsgruppe(String produktbuchungsgruppe) {
+		this.produktbuchungsgruppe = produktbuchungsgruppe;
+	}
+
+	/**
+	 * @return the aktiv
+	 */
+	public Boolean getAktiv() {
+		return aktiv;
+	}
+
+	/**
+	 * @param aktiv the aktiv to set
+	 */
+	public void setAktiv(Boolean aktiv) {
+		this.aktiv = aktiv;
+	}
+
+	/**
+	 * @return the art
+	 */
+	public String getArt() {
+		return art;
+	}
+
+	/**
+	 * @param art the art to set
+	 */
+	public void setArt(String art) {
+		this.art = art;
+	}
+
+	/**
+	 * @return the sonderposten
+	 */
+	public Boolean getSonderposten() {
+		return sonderposten;
+	}
+
+	/**
+	 * @param sonderposten the sonderposten to set
+	 */
+	public void setSonderposten(Boolean sonderposten) {
+		this.sonderposten = sonderposten;
 	}
 	
 	

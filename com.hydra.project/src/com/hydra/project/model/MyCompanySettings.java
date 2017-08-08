@@ -1,85 +1,135 @@
 package com.hydra.project.model;
 
-import java.util.ArrayList;
-import java.util.List;
-
 
 /**
- * Enthält alle Einstellungen des Nutzers
+ * Enthält alle Einstellungen der Firma
  * @author Burkhard Pöhler
  *
  */
-public class MyCompany {
+public class MyCompanySettings {
 	
 
-	private String nutzer;							// Name des Nutzers
-	protected List <String> projects;				//Liste zuletzt geöffneten Projekte
+	private String firma ="Lödige Industries";					
+	private String firmensparte ="Lödige Systems";				
+	private String strasse ="Wilhelm Lödige Strasse 1";			
+	private String postleitzahl ="123xxx";							
+	private String ort ="Warburg Scherfede";		
+	private String land ="Deutschland";		
+	private String nutzer ="jedermann";		
+	
+	public MyCompanySettings(){
+		nutzer = System.getProperty("user.name");
+	}
 
-	public MyCompany(){
-		projects = new ArrayList<String>(5);
-		nutzer = "";
-	}
-	
 	/**
-	 * Fügt das Projekt an letzter Position an
-	 * @param project das aktuell Projekt
+	 * @return the firma
 	 */
-	public void addProject(String project) {
-		if (projects == null){
-			projects = new  ArrayList<String>(5);
-		}
-		projects.add(project); 						// hängt hinten an
+	public String getFirma() {
+		return firma;
 	}
-	
-	/**
-	 * Entfernt das Projekt aus der Liste
-	 * @param project das aktuell Projekt
-	 */
-	public void removeProject(String project) {
-		
-		for (int i=0; i<projects.size();i++) {
-			if (projects.get(i).equals(project)) {
-				projects.set(i, "empty");
-			}
-		}
-	}
-	
-	/**
-	 * Räumt die Projektliste auf
-	 * Entfernt alle mit NULL oder "empty" markierten Einträge
-	 */
-	public void clearProjectList() {
 
-		for (int i=0; i<projects.size();i++){
-			if (projects.get(i)== null){
-				projects.remove(i);
-			}
-			if (projects.get(i)== "empty"){
-				projects.remove(i);
-			}
-		}
+
+	/**
+	 * @param firma the firma to set
+	 */
+	public void setFirma(String firma) {
+		this.firma = firma;
 	}
-	
+
+
+	/**
+	 * @return the firmensparte
+	 */
+	public String getFirmensparte() {
+		return firmensparte;
+	}
+
+
+	/**
+	 * @param firmensparte the firmensparte to set
+	 */
+	public void setFirmensparte(String firmensparte) {
+		this.firmensparte = firmensparte;
+	}
+
+
+	/**
+	 * @return the strasse
+	 */
+	public String getStrasse() {
+		return strasse;
+	}
+
+
+	/**
+	 * @param strasse the strasse to set
+	 */
+	public void setStrasse(String strasse) {
+		this.strasse = strasse;
+	}
+
+
+	/**
+	 * @return the postfach
+	 */
+	public String getPostleitzahl() {
+		return postleitzahl;
+	}
+
+
+	/**
+	 * @param postfach the postfach to set
+	 */
+	public void setPostleitzahl(String postleitzahl) {
+		this.postleitzahl = postleitzahl;
+	}
+
+
+	/**
+	 * @return the ort
+	 */
+	public String getOrt() {
+		return ort;
+	}
+
+
+	/**
+	 * @param ort the ort to set
+	 */
+	public void setOrt(String ort) {
+		this.ort = ort;
+	}
+
+
+	/**
+	 * @return the land
+	 */
+	public String getLand() {
+		return land;
+	}
+
+
+	/**
+	 * @param land the land to set
+	 */
+	public void setLand(String land) {
+		this.land = land;
+	}
+
+
 	/**
 	 * @return the nutzer
 	 */
 	public String getNutzer() {
-		return nutzer;
+		return System.getProperty("user.name");
 	}
+
 
 	/**
 	 * @param nutzer the nutzer to set
 	 */
 	public void setNutzer(String nutzer) {
 		this.nutzer = nutzer;
-	}
-
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
-	 */
-	@Override
-	public String toString() {
-		return "MySettings [nutzer=" + nutzer + "]";
 	}
 
 

@@ -19,7 +19,7 @@ public class OpenProjektFileCommand {
 		fileDialog.setFilterPath("C:/");
 		fileDialog.setFilterExtensions(new String[] { "*.XLS; *.XLSX" });
 		fileDialog.setFilterNames(new String[] { "Stunden (*.XLS *.XLSX)" });
-		fileDialog.setText("Exceldatei mit Projekten öffnen");
+		fileDialog.setText("Dynamics Exceldatei mit Projekten öffnen");
 
 		// We store the selected file name in fileName
 		String fileName = null;

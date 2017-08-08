@@ -148,7 +148,7 @@ public class MyTreeItem implements Cloneable {
 	 */
 	public void updateValues (){
 		this.setBearbeiter(System.getProperty("user.name"));
-		LogfileView.log("Update von: " + this.getBezeichnung());
+//		LogfileView.log("Update von: " + this.getBezeichnung());
 		Calendar calendar = Calendar.getInstance();
 		if (aenderungsdatum == null) aenderungsdatum = calendar.getTime().toString();
 		if (erstelldatum == null) erstelldatum = calendar.getTime().toString();

@@ -5,7 +5,7 @@ import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.swt.widgets.Shell;
 
-import com.hydra.project.database.DBCompanyTools;
+import com.hydra.project.database.DBCompanySettings;
 import com.hydra.project.model.MyTreeItem;
 import com.hydra.project.model.TreeTools;
 import com.hydra.project.myplugin_nebula.xviewer.customize.CustomizeData;
@@ -50,7 +50,7 @@ public class OpenFileCommand {
 
 	            }else{
 	            	//Datei noch nicht vorhanden			            	
-	            	TreeTools.addNewFile(fileName);		        		
+	            	TreeTools.addNewEmptyFile(fileName);		        		
 	            	break;
 	            }
 	        }

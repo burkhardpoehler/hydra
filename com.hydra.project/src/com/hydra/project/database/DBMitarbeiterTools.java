@@ -21,24 +21,17 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.eclipse.swt.SWT;
 
-import com.db4o.Db4oEmbedded;
 import com.db4o.ObjectContainer;
 import com.db4o.ObjectServer;
 import com.db4o.ObjectSet;
-import com.db4o.config.EmbeddedConfiguration;
 import com.db4o.cs.Db4oClientServer;
-import com.db4o.cs.config.ClientConfiguration;
 import com.db4o.cs.config.ServerConfiguration;
 import com.db4o.ext.DatabaseClosedException;
 import com.db4o.ext.DatabaseFileLockedException;
 import com.db4o.query.Query;
-import com.hydra.project.model.MyHours;
 import com.hydra.project.model.MyMitarbeiter;
-import com.hydra.project.model.MyTreeItem;
 import com.hydra.project.parts.LogfileView;
-import com.db4o.reflect.jdk.*;
-
-import java.sql.*;
+import com.hydra.project.startProcedure.StartProcedure;
 /**
  * Enthält alle Funktionen für den Zugriff auf die Stunden Datenbank
  * @author Poehler
@@ -46,11 +39,14 @@ import java.sql.*;
  */
 public class DBMitarbeiterTools {
 
-	public static String DATENBANK = "C:\\Hydra\\Mitarbeiter.DB4O";
+//	public static String DATENBANK = "C:\\Hydra\\Mitarbeiter.DB4O";
 	private static String thisClass= "DBMitarbeiterTools";
 	private static Boolean serverOFF = true;		//Flag gibt an, ob der Server bereits läuft
 	static ObjectServer server = null;
 	static ObjectContainer client = null;
+	private static String settingPfad = StartProcedure.getCompanyDataDir();
+	public static String DATENBANK = settingPfad + "\\Mitarbeiter.DB4O";
+	private static boolean flag = false;
 	
 	/**
 	 * Liest die Mitarbeiter Exceltabelle und füllt die Datenbank Mitarbeiter
@@ -67,46 +63,93 @@ public class DBMitarbeiterTools {
 		  throw new IllegalArgumentException("Received file does not have a standard excel extension.");
 		}
 		
-//		FileInputStream file = new FileInputStream(new File(strFile));
-        
+
 		//Get the workbook instance for XLS file 
 		Sheet sheet = workbook.getSheet("Tabelle1");
 		
 		//prüfen, ob richtige Tabelle 
-		//oberste linke Zelle prüfen
-		Row rTest = sheet.getRow(0);
+		//prüft auf drei verschiedenen Überschriften
+		Row rTestFile = sheet.getRow(0);
+		flag = false;
+		Integer counter = 0;	
+		for (int j = 0; j < rTestFile.getLastCellNum(); j++) {
 		
-		String string = rTest.getCell(0).getRichStringCellValue().getString();
-//		LogfileView.log(thisClass,"Inhalt der Zelle: "+string,SWT.ICON_ERROR);
+			if (rTestFile.getCell(j).getRichStringCellValue().getString().equals("Nr.")) counter = counter +1;
+			if (rTestFile.getCell(j).getRichStringCellValue().getString().equals("Name")) counter = counter +1;
+			if (rTestFile.getCell(j).getRichStringCellValue().getString().equals("Art")) counter = counter +1;
+			if (rTestFile.getCell(j).getRichStringCellValue().getString().equals("Basiseinheitencode")) counter = counter +1;
+			if (rTestFile.getCell(j).getRichStringCellValue().getString().equals("Produktbuchungsgruppe")) counter = counter +1;
+		}
+		if (counter == 5){
+			flag = true;
+		}else{
+			LogfileView.log(thisClass,"Falsche Datei. Enthält keine Mitarbeiter oder es fehlen Spalten",SWT.ICON_ERROR);
+		}
 		
 		ArrayList<MyMitarbeiter> arraylist = new ArrayList<MyMitarbeiter>();
 		
-	
-		if (rTest.getCell(0).getRichStringCellValue().getString().equals("Nr.")) {
-			
-		    // Loop over column and lines
-			for (int j = 1; j < sheet.getLastRowNum(); j++) {
+		if (flag) {
+			Row header = sheet.getRow(0);
+			for (int row = 1; row < sheet.getLastRowNum(); row++) {
 				MyMitarbeiter myMitarbeiter = new MyMitarbeiter();
-				Row r = sheet.getRow(j);
-
-	    		//0.Spalte Nr
-				Cell c = r.getCell(0);
-				c.setCellType(HSSFCell.CELL_TYPE_STRING);
-				myMitarbeiter.setNummer(c.getStringCellValue());
-				
-				//1.Spalte Postenart	
-				c = r.getCell(1);
-				if (c == null || c.getCellType() == Cell.CELL_TYPE_BLANK) {
-					// This cell is empty
-					myMitarbeiter.setName("");
-				}else{
-					c.setCellType(HSSFCell.CELL_TYPE_STRING);
-					myMitarbeiter.setName(c.getStringCellValue());
+				Row zeile = sheet.getRow(row);
+				for (int col = 0; col < header.getLastCellNum(); col++) {
+		
+					Cell c = zeile.getCell(col);
+					Cell spaltenueberschrift = header.getCell(col);
+					
+					switch(spaltenueberschrift.toString()){ 
+					case "Nr.": 
+						c.setCellType(HSSFCell.CELL_TYPE_STRING);
+						myMitarbeiter.setNummer(c.getStringCellValue());
+						break;
+						
+					case "Name": 
+						if (c == null || c.getCellType() == Cell.CELL_TYPE_BLANK) {
+							// This cell is empty
+							myMitarbeiter.setName("");
+						}else{
+							c.setCellType(HSSFCell.CELL_TYPE_STRING);
+							myMitarbeiter.setName(c.getStringCellValue());
+						}
+						break;
+						
+					case "Art": 
+						if (c == null || c.getCellType() == Cell.CELL_TYPE_BLANK) {
+							// This cell is empty
+							myMitarbeiter.setArt("");
+						}else{
+							c.setCellType(HSSFCell.CELL_TYPE_STRING);
+							myMitarbeiter.setArt(c.getStringCellValue());
+						}
+						break;
+						
+					case "Basiseinheitencode": 
+						if (c == null || c.getCellType() == Cell.CELL_TYPE_BLANK) {
+							// This cell is empty
+							myMitarbeiter.setBasiseinheit("");
+						}else{
+							c.setCellType(HSSFCell.CELL_TYPE_STRING);
+							myMitarbeiter.setBasiseinheit(c.getStringCellValue());
+						}
+						break;
+						
+					case "Produktbuchungsgruppe": 
+						if (c == null || c.getCellType() == Cell.CELL_TYPE_BLANK) {
+							// This cell is empty
+							myMitarbeiter.setProduktbuchungsgruppe("");
+						}else{
+							c.setCellType(HSSFCell.CELL_TYPE_STRING);
+							myMitarbeiter.setProduktbuchungsgruppe(c.getStringCellValue());
+						}
+						break;
+						
+					default:
+						
+					}
 				}
-				
-				
 				//Felder ergänzen
-				myMitarbeiter.setSatz(j);
+				myMitarbeiter.setSatz(row);
 				myMitarbeiter.setAbteilung("");
 				myMitarbeiter.setFirma("");
 				myMitarbeiter.setGeschlecht("");
@@ -123,8 +166,6 @@ public class DBMitarbeiterTools {
 						+ myMitarbeiter.getName(),SWT.ICON_INFORMATION);
 				
 			}
-		}else {
-			LogfileView.log(thisClass,"Falsche Datei. Enthält keine Mitarbeiter",SWT.ICON_ERROR);
 		}
 		
 		workbook.close();
@@ -202,6 +243,35 @@ public class DBMitarbeiterTools {
 			e.printStackTrace();
 		}
 		return null;
+	}
+	
+	/**
+	 * Speichert den geänderten Datensatz in der Datenbank ab
+	 * @param myMitarbeiter
+	 */
+	public static void updateMyMitarbeiter(MyMitarbeiter myMitarbeiter) {
+		serverStarten();
+		ArrayList<MyMitarbeiter> list = new  ArrayList<MyMitarbeiter>(5);
+		try {
+			Query queryNew = client.query();
+			queryNew.constrain(MyMitarbeiter.class);	
+			queryNew.descend("nummer").constrain(myMitarbeiter.getNummer()).equal();
+			ObjectSet<MyMitarbeiter> resultsNew = queryNew.execute();			
+			list.addAll(0,resultsNew);
+			if (list.size() == 1){
+				client.delete(resultsNew.get(0));
+				client.store(myMitarbeiter);
+				client.commit(); //speichern
+				LogfileView.log(thisClass,"Mitarbeiterdatenbank Datensatz ersetzt: " + myMitarbeiter.getName() ,SWT.ICON_INFORMATION);
+			}else{
+				LogfileView.log(thisClass,"Mitarbeiterdatenbank keinen oder mehr als ein Datensatz gefunden: " + list.size() ,SWT.ICON_ERROR);
+			}
+
+		} catch (DatabaseClosedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		serverStoppen();
 	}
 	
 	/**

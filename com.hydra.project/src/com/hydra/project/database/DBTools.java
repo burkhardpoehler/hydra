@@ -4,7 +4,6 @@
 package com.hydra.project.database;
 
 import java.io.File;
-import java.util.List;
 import com.hydra.project.myplugin_nebula.xviewer.customize.CustomizeData;
 import com.hydra.projects.XViewer.Main.MyXViewer;
 import com.db4o.Db4oEmbedded;
@@ -23,9 +22,8 @@ import com.db4o.ext.Db4oIOException;
 import com.db4o.ext.IncompatibleFileFormatException;
 import com.db4o.ext.OldFormatException;
 import com.db4o.query.Query;
-import com.hydra.project.model.MySettings;
+import com.hydra.project.model.MyUserSettings;
 import com.hydra.project.model.MyTreeItem;
-import com.hydra.project.model.OpenProject;
 import com.hydra.project.model.TreeTools;
 
 
@@ -44,9 +42,9 @@ public class DBTools extends Utilities {
 	private static String HOST = "localhost";
 	
 	private static int dateiIndex=0;
-	public static String SETTINGSDATENBANK = "C:\\Hydra\\Settings.DB4O";
+
 	public static String STUNDENDATENBANK = "C:\\Hydra\\Stunden.DB4O";
-	private static MySettings mySettings= new MySettings();
+	private static MyUserSettings mySettings= new MyUserSettings();
 	
 	static ObjectServer[] server = new ObjectServer[50];
 	static ObjectContainer[] client = new ObjectContainer[50];
@@ -108,6 +106,10 @@ public class DBTools extends Utilities {
 	    	myNewTreeItem.setDbIndex(myTreeItem.getDbIndex());
 	    	myNewTreeItem.setDatenbankName(myTreeItem.getDatenbankName());
 	    }
+		if (myNewTreeItem == null){
+			System.out.println("Datenbank konnte nicht geöffnet werden: Index: " + myTreeItem.getDbIndex() + " Name: " + myTreeItem.getDatenbankName());
+		}
+		
 		return myNewTreeItem;
 	}
 
@@ -205,25 +207,25 @@ public class DBTools extends Utilities {
 	
 
 	
-	public static List readLastOpenProjects(){
-		//Prüfen, ob Datenbank existiert  
-		File file = new File(SETTINGSDATENBANK);	
-		if(!file.exists()){
-			ObjectContainer neu = Db4oEmbedded.openFile(SETTINGSDATENBANK);
-			OpenProject openproject = new OpenProject("leer");
-			neu.store(openproject);
-			neu.commit();
-			neu.close();
-		}
-
-        ObjectContainer dbSettings = Db4oEmbedded.openFile(SETTINGSDATENBANK);
-		Query query=dbSettings.query();							//Abfrage definieren
-		query.constrain(OpenProject.class);							//suche alle Datensätze
-		ObjectSet<List> results=query.execute();
-		List item = results.get(0);
-		dbSettings.close();
-		return item;
-	}
+//	public static List readLastOpenProjects(){
+//		//Prüfen, ob Datenbank existiert  
+//		File file = new File(SETTINGSDATENBANK);	
+//		if(!file.exists()){
+//			ObjectContainer neu = Db4oEmbedded.openFile(SETTINGSDATENBANK);
+//			OpenProject openproject = new OpenProject("leer");
+//			neu.store(openproject);
+//			neu.commit();
+//			neu.close();
+//		}
+//
+//        ObjectContainer dbSettings = Db4oEmbedded.openFile(SETTINGSDATENBANK);
+//		Query query=dbSettings.query();							//Abfrage definieren
+//		query.constrain(OpenProject.class);							//suche alle Datensätze
+//		ObjectSet<List> results=query.execute();
+//		List item = results.get(0);
+//		dbSettings.close();
+//		return item;
+//	}
 	
 
 	

@@ -23,9 +23,12 @@ import java.util.Random;
 import java.util.logging.Level;
 import org.eclipse.jface.dialogs.MessageDialog;
 
-import com.hydra.project.database.DBCompanyTools;
+import com.hydra.project.database.DBCompanySettings;
 import com.hydra.project.model.MyTableCustomization;
 import com.hydra.project.myplugin_nebula.xviewer.Activator;
+import com.hydra.project.parts.LogfileView;
+
+import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Display;
 //import org.eclipse.ui.PlatformUI;
@@ -34,6 +37,7 @@ import org.eclipse.swt.widgets.Display;
  * @author Donald G. Dunne
  */
 public class MyLib {
+	private static String thisClass= "MyLib";
    static Random random = new Random();
    private static final Date today = new Date();
    public final static int MILLISECS_PER_DAY = (1000 * 60 * 60 * 24);
@@ -121,10 +125,13 @@ public class MyLib {
 	 */
    public static List<MyTableCustomization> readListFromDB(String directory, String filter, boolean keepExtension) {
 	   List<MyTableCustomization> myTableCustomization = new ArrayList<MyTableCustomization>();
-	   
-	   myTableCustomization = DBCompanyTools.readDB(directory,  filter);
+	   LogfileView.log(thisClass,"Tabelleneinstellung: Dateipfad: " + directory.toString(),SWT.ICON_INFORMATION);
+	   LogfileView.log(thisClass,"Tabelleneinstellung: Filter: " + filter,SWT.ICON_INFORMATION);
+	   LogfileView.log(thisClass,"Tabelleneinstellung: Endung: " + keepExtension,SWT.ICON_INFORMATION);
+	   myTableCustomization = DBCompanySettings.readTableDB(directory,  filter);
 	   if (myTableCustomization != null) {
 		     if (keepExtension) {
+		    	 tabelleAnzeigen(myTableCustomization);
 		    	 return myTableCustomization;
 		      } else {
 		         for (int i = 0; i < myTableCustomization.size(); i++) {
@@ -132,7 +139,17 @@ public class MyLib {
 		         }
 		      }
 	   }
+	   tabelleAnzeigen(myTableCustomization);
 	   return myTableCustomization;
+   }
+   
+   private static void tabelleAnzeigen(List<MyTableCustomization> myTableCustomization){
+       for (int i = 0; i < myTableCustomization.size(); i++) {
+      	 myTableCustomization.get(i);
+      	 LogfileView.log(thisClass,"Nr: " + i +  myTableCustomization.get(i).getDirectory() + " " +
+      			 myTableCustomization.get(i).getFilter() + " " +
+      			 myTableCustomization.get(i).getId(),SWT.ICON_INFORMATION);
+       }
    }
    
    public static List<String> readListFromDir(String directory, FilenameFilter filter) {
@@ -140,17 +157,17 @@ public class MyLib {
    }
 
    
-   /**
- 	 * Liest aus der Company Datenbank eine virtuelle Dateipfadliste.
- 	 * @param directory Der virtuelle Verzeichnispfad.
- 	 * @param filter Der Dateifilter
- 	 * @return list Die Liste mit den virtuellen Dateipfaden.
- 	 */
-   public static List<MyTableCustomization> readListFromDB(String directory, String filter) {
-	   List<MyTableCustomization> myTableCustomization = new ArrayList<MyTableCustomization>();
-	   myTableCustomization = DBCompanyTools.readDB(directory,  filter);
-	   return myTableCustomization;
-   }
+//   /**
+// 	 * Liest aus der Company Datenbank eine virtuelle Dateipfadliste.
+// 	 * @param directory Der virtuelle Verzeichnispfad.
+// 	 * @param filter Der Dateifilter
+// 	 * @return list Die Liste mit den virtuellen Dateipfaden.
+// 	 */
+//   public static List<MyTableCustomization> readListFromDB(String directory, String filter) {
+//	   List<MyTableCustomization> myTableCustomization = new ArrayList<MyTableCustomization>();
+//	   myTableCustomization = DBCompanySettings.readDB(directory,  filter);
+//	   return myTableCustomization;
+//   }
    
    /**
     * Remove the file extension from the file path

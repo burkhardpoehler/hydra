@@ -5,40 +5,38 @@ package com.hydra.project.model;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.UUID;
-
 import javax.inject.Inject;
-
-import com.hydra.project.database.DBSettingsTools;
+import com.hydra.project.database.DBUserSettings;
 import com.db4o.Db4oEmbedded;
 import com.db4o.EmbeddedObjectContainer;
 import com.db4o.ObjectSet;
 import com.db4o.query.Query;
-import com.hydra.project.command.Perspective_ProjectCalendarCommand;
 import com.hydra.project.command.UpdateNodeCommand;
 import com.hydra.project.database.DBTools;
-import com.hydra.project.editors.MyUpdateNodeStructureEditor;
 import com.hydra.project.exceptions.NoChildFoundException;
 import com.hydra.project.functions.MyTreeItemSettings;
 import com.hydra.project.parts.BaumView;
 import com.hydra.project.parts.LogfileView;
-
-import org.eclipse.nebula.widgets.treemapper.*;
-import org.eclipse.swt.widgets.Shell;
+import com.hydra.project.startProcedure.StartProcedure;
 
 
 /**
+ * Bereitet die Öffnung des Projektes vor. Erstellt den Baum erstmalig.
+ * Öffnet das Basisprojekt und alle alten geöffneten Projekte.
  * @author Burkhard Pöhler							
  */
 public class TreeTools {
-	public static String BASISDATENBANK = "C:\\Hydra\\Basisdaten.DB4O";
-	public static String PROJEKTDATENBANK = "C:\\Hydra\\Projektdaten.DB4O";
-	public static String SETTINGSDATENBANK = "C:\\Hydra\\Settings.DB4O";
+//	public static String BASISDATENBANK = "C:\\Hydra\\Basisdaten.DB4O";
+	private static String settingPfad = StartProcedure.getBasisdatenDir();
+	public static String BASISDATENBANK = settingPfad + "\\Basisdaten.DB4O";
+	
+//	public static String PROJEKTDATENBANK = "C:\\Hydra\\Projektdaten.DB4O";
+//	public static String SETTINGSDATENBANK = "C:\\Hydra\\Settings.DB4O";
 	private static int dateiIndex=0;							//zählt die offenen Datenbanken
 	private static boolean zwischenspeicher=false;				//zeigt an, ob ein eine Kopiervorlage in der tmp Datenbank liegt
-	public static MySettings mySettings = new MySettings();
+	public static MyUserSettings mySettings = new MyUserSettings();
 	
 		
 	@Inject
@@ -63,7 +61,7 @@ public class TreeTools {
 	 */	
 	public static MyTreeItem InitialisiereBaum() {
 		//Benutzer ermitteln
-		mySettings = DBSettingsTools.readSettingsDB();
+		mySettings = DBUserSettings.readSettingsDB();
 		
 		//Obersten Knoten für den tree definieren und setzen
 		myTopTreeItem.setBezeichnung("Wurzel");
@@ -98,10 +96,10 @@ public class TreeTools {
 		//Nutzerspezifische Daten laden
 //		mySettings = SettingsdatenbankLesen(); //fehlerhafte Funktion
 //		mySettings = new MySettings();
-		mySettings.clearProjectList();
+//		mySettings.clearProjectList();
 		// alle zuletzt geöffneten Projekte laden
 		myTopTreeItem.addChild(addAllProjects());
-		addNewEmptyFile("C:\\Hydra\\Neues Projekt.DB4O");
+//		addNewEmptyFile("C:\\Hydra\\Neues Projekt.DB4O");
 		addParentUUID(myTopTreeItem);			//repariert eventuelle Fehler in der Baumstruktur
 		addParent(myTopTreeItem);				//repariert eventuelle Fehler in der Baumstruktur
 		updateValues(myTopTreeItem);			//aktualisiert Werte und ergänzt fehlende Werte
@@ -132,7 +130,7 @@ public class TreeTools {
 		dateiIndex = dateiIndex + 1;
 		myTreeItem.setDbIndex(dateiIndex);
 		mySettings.addProject(project);							// der Liste anfügen
-//		SettingdatenbankSchreiben();							//sichern  !!!fehlerhafte Funktion
+		DBUserSettings.writeSettingsDB(mySettings);				//sichern
 		addProjectToProjecttree(myTreeItem);
 	}
 	
@@ -149,12 +147,14 @@ public class TreeTools {
 	   		if(myTopTreeItem.children.get(i).isProjektBaum()){
 	   			MyTreeItem projektbaum = myTopTreeItem.children.get(i);
 	   			MyTreeItem neuesKind = DBTools.dateiOeffnen(myTreeItem);
-//	   			MyTreeItem neuesKind = DBTools.serverDateiOeffnen(myTreeItem);
-	   			projektbaum.addChild(neuesKind);
-            	UpdateNodeCommand.update(projektbaum);
-        		UpdateNodeCommand.setFocus(neuesKind);
-        		MyViewers.setViewers(neuesKind);						//passenden Viewer aufrufen
-    		};	    		
+				if (neuesKind != null) {
+					projektbaum.addChild(neuesKind);
+					UpdateNodeCommand.update(projektbaum);
+					UpdateNodeCommand.setFocus(neuesKind);
+					MyViewers.setViewers(neuesKind); //passenden Viewer aufrufen
+				}
+		   		break;
+    		}; 
 		}
 	}
 	
@@ -172,7 +172,7 @@ public class TreeTools {
 		dateiIndex = dateiIndex + 1;
 		myTreeItem.setDbIndex(dateiIndex);
 		mySettings.addProject(project);							// der Liste anfügen
-		DBSettingsTools.writeSettingsDB(mySettings);			//Daten sichern
+		DBUserSettings.writeSettingsDB(mySettings);				//Daten sichern
 		addProjectToProjecttree(myTreeItem);
 //		MyViewers.setViewers(myTreeItem);						//passenden Viewer aufrufen
 	}
@@ -185,8 +185,8 @@ public class TreeTools {
 	 */
 	public static void removeFile(MyTreeItem myTreeItem){
 		myTreeItem.getParent().removeChild(myTreeItem);			//Kind entfernen
-		mySettings.removeProject(myTreeItem.getVariablenWert());// aus der Liste entfernen
-//		SettingdatenbankSchreiben();							//sichern  !!!fehlerhafte Funktion
+		mySettings.removeProject(myTreeItem.getDatenbankName());// aus der Liste entfernen
+		DBUserSettings.writeSettingsDB(mySettings);				//Daten sichern
       	DBTools.dateiSchliessen(myTreeItem);
 		UpdateNodeCommand.update(myTreeItem.getParent());
     	UpdateNodeCommand.setFocus(myTreeItem.getParent());
@@ -219,10 +219,10 @@ public class TreeTools {
 		projektKnoten.setStrukturknoten(true);
 		
 		// Projekte ergänzen
-		for (int i = 0; i < mySettings.projects.size(); i++) { 
+		for (int i = 0; i < mySettings.getProjects().size(); i++) { 
 			dateiIndex = dateiIndex +1;
 			MyTreeItem dummyMyTreeItem1 = new MyTreeItem();
-			dummyMyTreeItem1.setDatenbankName(mySettings.projects.get(i).toString());
+			dummyMyTreeItem1.setDatenbankName(mySettings.getProjects().get(i).toString());
 			dummyMyTreeItem1.setBezeichnung("Projekt" + i);
 			dummyMyTreeItem1.setObersterKnoten(true);
 			dummyMyTreeItem1.setDbIndex(dateiIndex);
@@ -728,48 +728,48 @@ public class TreeTools {
 	    db.close();	    											//neue Datei schließen
 	}	
 	
-	/**
-	 * @author Burkhard Pöhler
-	 * @param	file Dateipfad des zu öffnenden Projektes
-	 */
-	
-	public static void ProjektOeffnen(File file){
-		//Neuen Knoten anlegen
-		MyTreeItem neuerDateiKnoten = new MyTreeItem();
-		neuerDateiKnoten.setBeschreibung("Datei");
-		neuerDateiKnoten.setObersterKnoten(true);
-		neuerDateiKnoten.setBezeichnung("Datei");
-		neuerDateiKnoten.setParameter("Projekt");
-		neuerDateiKnoten.setIsProjekt(true);
-		neuerDateiKnoten.setVariablenWert(file.toString());
-		
-		//Neuen Knoten in Projektdatenbank ablegen
-		if (file.exists()) {
-			// Datei in die Liste der akutellen Projekte aufnehmen
-			
-			EmbeddedObjectContainer db;
-			db=Db4oEmbedded.openFile(PROJEKTDATENBANK);
-			Query query=db.query();							//Abfrage definieren
-			query.constrain(MyTreeItem.class);				//suche alle Datensätze
-		    query.descend("isObersterKnoten").constrain("true");		//nach obersten Knoten suchen
-		    ObjectSet<MyTreeItem> results=query.execute();
-		    if (results.size()==1){
-		    	results.get(0).setChild(neuerDateiKnoten);
-		    }
-		    db.store(results);
-		    db.close();	    
-			
-		}
-		//Hauptbaum ergänzen
-    	Iterator<MyTreeItem> it = myTopTreeItem.children.iterator();
-    	while (it.hasNext()) {
-    		if(it.next().isProjektBaum()){
-    			it.next().setChild(neuerDateiKnoten);
-    		};	    		
-		}
-		
-		
-	}
+//	/**
+//	 * @author Burkhard Pöhler
+//	 * @param	file Dateipfad des zu öffnenden Projektes
+//	 */
+//	
+//	public static void ProjektOeffnen(File file){
+//		//Neuen Knoten anlegen
+//		MyTreeItem neuerDateiKnoten = new MyTreeItem();
+//		neuerDateiKnoten.setBeschreibung("Datei");
+//		neuerDateiKnoten.setObersterKnoten(true);
+//		neuerDateiKnoten.setBezeichnung("Datei");
+//		neuerDateiKnoten.setParameter("Projekt");
+//		neuerDateiKnoten.setIsProjekt(true);
+//		neuerDateiKnoten.setVariablenWert(file.toString());
+//		
+//		//Neuen Knoten in Projektdatenbank ablegen
+//		if (file.exists()) {
+//			// Datei in die Liste der akutellen Projekte aufnehmen
+//			
+//			EmbeddedObjectContainer db;
+//			db=Db4oEmbedded.openFile(PROJEKTDATENBANK);
+//			Query query=db.query();							//Abfrage definieren
+//			query.constrain(MyTreeItem.class);				//suche alle Datensätze
+//		    query.descend("isObersterKnoten").constrain("true");		//nach obersten Knoten suchen
+//		    ObjectSet<MyTreeItem> results=query.execute();
+//		    if (results.size()==1){
+//		    	results.get(0).setChild(neuerDateiKnoten);
+//		    }
+//		    db.store(results);
+//		    db.close();	    
+//			
+//		}
+//		//Hauptbaum ergänzen
+//    	Iterator<MyTreeItem> it = myTopTreeItem.children.iterator();
+//    	while (it.hasNext()) {
+//    		if(it.next().isProjektBaum()){
+//    			it.next().setChild(neuerDateiKnoten);
+//    		};	    		
+//		}
+//		
+//		
+//	}
 	
 	/**
 	 * @author Burkhard Pöhler
@@ -928,6 +928,8 @@ public class TreeTools {
 	public static MyTreeItem NeuesProjektAnlegen(String projekt) {
 		File file = new File(projekt);
 		if (file.exists()) file.delete();
+		String filename = file.getName();
+		filename = filename.substring(0, filename.length()-5);
 		
 		EmbeddedObjectContainer db;
 		db=Db4oEmbedded.openFile(projekt); 						//Datei wird erzeugt, wenn nicht vorhanden
@@ -935,10 +937,10 @@ public class TreeTools {
 		
 		// Knoten für das Projekt selbst
 		MyTreeItem projektKnoten = new MyTreeItem();
-		projektKnoten.setBeschreibung(projekt);
+		projektKnoten.setBeschreibung(filename);
 		projektKnoten.setObersterKnoten(true);
 		projektKnoten.setIsProjekt(true);
-		projektKnoten.setBezeichnung(projekt);
+		projektKnoten.setBezeichnung(filename);
 		projektKnoten.setParameter("Projekt");
 		projektKnoten.setIsParameter(false);
 		projektKnoten.setVariablenWert("");
@@ -948,6 +950,7 @@ public class TreeTools {
 		projektKnoten.setIconDateiname("folders-stack.png");
 		projektKnoten.setStrukturknoten(true);
 		projektKnoten.setDummy(false);
+		projektKnoten.setVariablenWert(filename);
 	
 		// Knoten für die Projekteinstellungen
 		MyTreeItem einstellungenKnoten = new MyTreeItem();

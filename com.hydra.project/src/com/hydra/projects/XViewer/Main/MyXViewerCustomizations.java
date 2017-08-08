@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 
-import com.hydra.project.database.DBCompanyTools;
+import com.hydra.project.database.DBCompanySettings;
 import com.hydra.project.model.MyTableCustomization;
 import com.hydra.project.model.MyTreeItem;
 import com.hydra.project.myplugin_nebula.xviewer.Activator;
@@ -52,7 +52,7 @@ public class MyXViewerCustomizations extends XViewerCustomizations {
    public void deleteCustomization(CustomizeData custData) throws Exception {
 	   getTableItem();
 	   boolean flag = false;
-	   flag = DBCompanyTools.deleteTableConfigInDB(user_home, "XViewer_CustData_" + custData.getGuid() + ".xml");
+	   flag = DBCompanySettings.deleteTableConfigInDB(user_home, "XViewer_CustData_" + custData.getGuid() + ".xml");
 	   if (!flag) {
 		   throw new XViewerException("Delete Customization Failed");
 	   }
@@ -73,7 +73,7 @@ public class MyXViewerCustomizations extends XViewerCustomizations {
 //      custDatas.add(MyDefaultCustomizations.getDescriptionCustomization());
 //      String userHome = System.getProperty("user.home");
       List<MyTableCustomization> myTableCustomization = new ArrayList<MyTableCustomization>();
-      myTableCustomization = DBCompanyTools.readDB(user_home, "");
+      myTableCustomization = DBCompanySettings.readTableDB(user_home, "");
    
       for (int n = 0; n < myTableCustomization.size(); n++) {
 //    	  String dateipfad = myTableCustomization.get(n).getDirectory() + myTableCustomization.get(n).getFilter();
@@ -105,7 +105,7 @@ public class MyXViewerCustomizations extends XViewerCustomizations {
 //         return null;
 //      }
 //      
-      String defaultGuid = DBCompanyTools.readDefaultFileFromDB(user_home,USERDEFAULT);
+      String defaultGuid = DBCompanySettings.readDefaultFileFromDB(user_home,USERDEFAULT);
       
 //      String defaultGuid = FileUtil.readFile(file).replaceAll("\\s", "");
       if (defaultGuid != null) {
@@ -131,7 +131,7 @@ public class MyXViewerCustomizations extends XViewerCustomizations {
 //         return false;
 //      }
 //      
-      String defaultGuid = DBCompanyTools.readDefaultFileFromDB(user_home,USERDEFAULT);
+      String defaultGuid = DBCompanySettings.readDefaultFileFromDB(user_home,USERDEFAULT);
       
 //      String defaultGuid = FileUtil.readFile(getDefaultFilename()).replaceAll("\\s", "");
       if (defaultGuid == null){
@@ -145,7 +145,7 @@ public class MyXViewerCustomizations extends XViewerCustomizations {
 	   getTableItem();
 	   MyTableCustomization myTableCustomization = 
 			   new MyTableCustomization(user_home,"XViewer_CustData_" + custData.getGuid() + ".xml",custData.getXml(true),custData.getGuid());   
-	   DBCompanyTools.writeFileToDB(myTableCustomization);
+	   DBCompanySettings.writeFileToDB(myTableCustomization);
 	   
 //      MyLib.writeStringToFile(custData.getXml(true), new File(getFilename(custData)));
 //      Thread.sleep(2000);
@@ -168,16 +168,16 @@ public class MyXViewerCustomizations extends XViewerCustomizations {
 //         try {
 //    	  String userHome = System.getProperty("user.home");
 //    	  String filename = "XViewer_CustDataUserDefault.txt";
-    	  DBCompanyTools.deleteTableConfigInDB(user_home,USERDEFAULT);		//alte Einstellung löschen
+    	  DBCompanySettings.deleteTableConfigInDB(user_home,USERDEFAULT);		//alte Einstellung löschen
     	  MyTableCustomization myTableCustomization = new MyTableCustomization(user_home,USERDEFAULT,"",newCustData.getGuid());   
-      	  DBCompanyTools.writeFileToDB(myTableCustomization);
+      	  DBCompanySettings.writeFileToDB(myTableCustomization);
 //            MyLib.writeStringToFile(newCustData.getGuid(), new File(getDefaultFilename()));
 //         } catch (IOException ex) {
 //            MyLog.logAndPopup(Activator.class, Level.SEVERE, ex);
 //         }
       } else {
     	  	boolean flag = false;
-   	   		flag = DBCompanyTools.deleteTableConfigInDB(user_home, USERDEFAULT);
+   	   		flag = DBCompanySettings.deleteTableConfigInDB(user_home, USERDEFAULT);
    	   		if (!flag) {
    	   			throw new XViewerException("Delete Customization Failed");
    	   		}

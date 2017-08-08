@@ -3,11 +3,12 @@
  */
 package com.hydra.project.editors;
 
-import org.eclipse.nebula.widgets.treemapper.ISemanticTreeMapperSupport;
+//import org.eclipse.nebula.widgets.treemapper.ISemanticTreeMapperSupport;
 import org.eclipse.swt.widgets.Composite;
 
 import com.hydra.project.editors.MyTreeItemBean;
 import com.hydra.project.model.MyTreeItem;
+import com.hydra.project.nebula.ISemanticTreeMapperSupport;
 
 /**
  * @author Poehler

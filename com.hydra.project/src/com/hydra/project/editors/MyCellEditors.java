@@ -14,11 +14,12 @@ import org.eclipse.jface.viewers.ComboBoxCellEditor;
 import org.eclipse.jface.viewers.TextCellEditor;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.nebula.widgets.cdatetime.CDateTime;
-import org.eclipse.nebula.widgets.datechooser.DateChooser;
+//import org.eclipse.nebula.widgets.datechooser.DateChooser;
 import org.eclipse.swt.SWT;
 
 import com.hydra.project.model.MyTreeItem;
 import com.hydra.project.model.TreeTools;
+import com.hydra.project.nebula.DateChooserTheme;
 import com.hydra.project.parts.LogfileView;
 import com.hydra.project.parts.PropertyView;
 
@@ -42,7 +43,7 @@ public class MyCellEditors {
 	static CDateTimeCellEditor cDateTimeCellEditor = null;
 	static Date date = null;
 	protected static CDateTime cDateTime;
-	static DateChooser cal;
+	static DateChooserTheme cal;
 	
 	
 	private static ArrayList<String> arrayList = new ArrayList<String>();

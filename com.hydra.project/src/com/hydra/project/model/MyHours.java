@@ -24,6 +24,8 @@ public class MyHours {
 	private Date geändertAm;
 	private String geändertDurch;
 	private Date buchungsdatum;
+	private long lfdnr;
+	private String arbeitstypencode;
 
 //	/**
 //	 * 
@@ -287,5 +289,37 @@ public class MyHours {
 	 */
 	public void setBeschreibung(String beschreibung) {
 		this.beschreibung = beschreibung;
+	}
+
+
+	/**
+	 * @return the lfdnr
+	 */
+	public long getLfdnr() {
+		return lfdnr;
+	}
+
+
+	/**
+	 * @param lfdnr the lfdnr to set
+	 */
+	public void setLfdnr(long lfdnr) {
+		this.lfdnr = lfdnr;
+	}
+
+
+	/**
+	 * @return the arbeitstypen
+	 */
+	public String getArbeitstypencode() {
+		return arbeitstypencode;
+	}
+
+
+	/**
+	 * @param arbeitstypen the arbeitstypen to set
+	 */
+	public void setArbeitstypencode(String arbeitstypencode) {
+		this.arbeitstypencode = arbeitstypencode;
 	}
 }

@@ -32,7 +32,7 @@ import com.hydra.project.model.TreeTools;
  * Der Viewer dient zur Erzeugung von Reporten mit Birt
  */
 public class ReportView {
-	private static org.eclipse.birt.report.viewer.utilities.WebViewer viewer;
+//	private static org.eclipse.birt.report.viewer.utilities.WebViewer viewer;
 	
 	private static int counter = 0;
 	private static boolean viewerFlag = true;

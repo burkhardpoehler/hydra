@@ -12,7 +12,8 @@ import java.util.GregorianCalendar;
 import org.eclipse.jface.viewers.ArrayContentProvider;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.TableViewerColumn;
-import org.eclipse.nebula.widgets.datechooser.DateChooser;
+//import org.eclipse.nebula.widgets.datechooser.DateChooser;
+import org.eclipse.nebula.widgets.cdatetime.*;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.ScrolledComposite;
 import org.eclipse.swt.events.FocusEvent;
@@ -34,6 +35,7 @@ import com.hydra.project.parts.LogfileView;
 import com.hydra.project.parts.ProjectCalendarView;
 import com.hydra.project.provider.HoursTableLabelProvider;
 import com.hydra.project.model.AktiveHourFilter;
+import com.hydra.project.nebula.DateChooser;
 import com.hydra.project.database.DBMitarbeiterTools;
 import com.hydra.project.editors.ComboBoxTools;
 /**
@@ -289,11 +291,13 @@ public class MyVorgangTools {
 	 */
 	public static int getIndex(String[] liste, String value){
 		int index = 0;
-		for (int i = 0; i < liste.length; i++) {
-			if (liste[i].equals(value)) {
-				index = i;
-				break;
-			}
+		if (liste != null) {
+			for (int i = 0; i < liste.length; i++) {
+				if (liste[i].equals(value)) {
+					index = i;
+					break;
+				}
+			} 
 		}
 		return index;
 	}
@@ -413,11 +417,12 @@ public class MyVorgangTools {
 		Composite composite = new Composite(scrolledComposite, SWT.NONE);
 		composite.setLayout(new RowLayout(SWT.HORIZONTAL));
 		
-		LogfileView.log("MyVorgangTools","Kalender erstellen mit " + anzahlMonate + " Monaten");	
+		LogfileView.log("MyVorgangTools","Kalender erstellen mit " + anzahlMonate + " Monaten");
+
 		final DateChooser dateChooser[] = new DateChooser[anzahlMonate+1];
 
 		for (int i = 0; i < anzahlMonate + 1 ; i++) {
-			dateChooser[i] = new DateChooser(composite, SWT.NONE);
+			dateChooser[i] = new com.hydra.project.nebula.DateChooser(composite, SWT.NONE);
 			dateChooser[i].setCurrentMonth(run);
 			dateChooser[i].setWeeksVisible(true);
 			dateChooser[i].setNavigationEnabled(false);
