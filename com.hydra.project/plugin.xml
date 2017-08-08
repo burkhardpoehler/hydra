@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin>
+   <extension-point id="splashExtension" name="Splash Extensions" schema="schema/splashExtension.exsd"/>
    <extension
          id="product"
          point="org.eclipse.core.runtime.products">
@@ -18,7 +19,89 @@
            name="lifeCycleURI"
            value="bundleclass://com.hydra.project/lifecycle.LifeCycleManager">
          </property>
+         <property
+               name="aboutImage"
+               value="icons/16x16/weather-cloud.png">
+         </property>
+         <property
+               name="aboutText"
+               value="Hydra Version 2.0.0">
+         </property>
+         <property
+               name="windowImages"
+               value="icons/16x16/history_working_set_obj.gif">
+         </property>
+         <property
+               name="applicationCSS"
+               value="platform:/plugin/com.hydra.project/css/default.css">
+         </property>
       </product>
+   </extension>
+   <extension
+         point="org.eclipse.ui.intro">
+      <intro
+            class="org.eclipse.ui.intro.config.CustomizableIntroPart"
+            id="com.hydra.project.intro">
+      </intro>
+      <introProductBinding
+            introId="com.hydra.project.intro"
+            productId="com.hydra.project.product">
+      </introProductBinding>
+   </extension>
+   <extension
+         point="org.eclipse.ui.intro.config">
+      <config
+            content="introContent.xml"
+            id="com.hydra.project.introConfigId"
+            introId="com.hydra.project.intro">
+         <presentation
+               home-page-id="root">
+            <implementation
+                  kind="html"
+                  os="win32,linux,macosx"
+                  style="content/shared.css">
+            </implementation>
+         </presentation>
+      </config>
+   </extension>
+   <extension
+         point="org.eclipse.ui.splashHandlers">
+      <splashHandler
+            class="com.hydra.project.splashHandlers.ExtensibleSplashHandler"
+            id="com.hydra.project.splashHandlers.extensible">
+      </splashHandler>
+      <splashHandlerProductBinding
+            productId="com.hydra.project.product"
+            splashId="com.hydra.project.splashHandlers.extensible">
+      </splashHandlerProductBinding>
+   </extension>
+   <extension
+         point="com.hydra.project.splashExtension">
+      <splashExtension
+            icon="icons/af.png"
+            id="af"
+            tooltip="Application Framework">
+      </splashExtension>
+      <splashExtension
+            icon="icons/embedded.png"
+            id="embedded"
+            tooltip="Embedded">
+      </splashExtension>
+      <splashExtension
+            icon="icons/enterprise.png"
+            id="enterprise"
+            tooltip="Enterprise">
+      </splashExtension>
+      <splashExtension
+            icon="icons/languages.png"
+            id="languages"
+            tooltip="Languages">
+      </splashExtension>
+      <splashExtension
+            icon="icons/rcp.png"
+            id="rcp"
+            tooltip="RCP">
+      </splashExtension>
    </extension>
 
 

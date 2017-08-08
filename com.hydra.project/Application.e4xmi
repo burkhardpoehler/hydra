@@ -77,12 +77,18 @@
       </children>
       <children xsi:type="advanced:Perspective" xmi:id="_MeMK0AbSEeWiBdzl426Nwg" elementId="com.hydra.project.perspective.ProjectCalendar" label="Projekt Kalender Ansicht" iconURI="platform:/plugin/com.hydra.project/icons/16x16/table-resize.png">
         <children xsi:type="basic:PartStack" xmi:id="_Hp9xYAbTEeWiBdzl426Nwg" elementId="com.hydra.project.partstack.ProjectCalendar">
-          <children xsi:type="basic:Part" xmi:id="_RBT7QAbTEeWiBdzl426Nwg" elementId="com.hydra.project.part.ProjectCalendar" contributionURI="bundleclass://com.hydra.project/com.hydra.project.parts.ProjectCalendarView" label="Projekt Kalender"/>
+          <children xsi:type="basic:Part" xmi:id="_RBT7QAbTEeWiBdzl426Nwg" elementId="com.hydra.project.part.ProjectCalendar1" contributionURI="bundleclass://com.hydra.project/com.hydra.project.parts.ProjectCalendarView" label="Projekt Kalender"/>
         </children>
       </children>
-      <children xsi:type="advanced:Perspective" xmi:id="_cfWs8KUOEeaEapi3sV6tFQ" elementId="com.hydra.project.perspective.Inventor" label="Inventor" iconURI="platform:/plugin/com.hydra.project/icons/16x16/Format.gif">
-        <children xsi:type="basic:PartStack" xmi:id="_rFiTMKUOEeaEapi3sV6tFQ" elementId="com.hydra.project.partstack.Inventor">
-          <children xsi:type="basic:Part" xmi:id="_sFpFUKUOEeaEapi3sV6tFQ" elementId="com.hydra.project.part.InventorExcel" contributionURI="bundleclass://com.hydra.project/com.hydra.project.parts.InventorExcelTableView" label="Inventor Excel Transferdatei" iconURI="platform:/plugin/com.hydra.project/icons/16x16/application-task.png"/>
+      <children xsi:type="advanced:Perspective" xmi:id="_cfWs8KUOEeaEapi3sV6tFQ" elementId="com.hydra.project.perspective.Inventor" label="Inventor" iconURI="platform:/plugin/com.hydra.project/icons/16x16/auction-hammer.png">
+        <children xsi:type="basic:PartStack" xmi:id="_rFiTMKUOEeaEapi3sV6tFQ" elementId="com.hydra.project.partstack.Inventor"/>
+      </children>
+      <children xsi:type="advanced:Perspective" xmi:id="_WdPzsDGvEeelWr2MbYhQcQ" elementId="com.hydra.project.perspective.LoedigeDatenpool" selectedElement="_70syUDGvEeelWr2MbYhQcQ" label="Lödige Datenpool" iconURI="platform:/plugin/com.hydra.project/icons/16x16/binocular.png" tooltip="Enthält Daten aus Dynamics und Orderbase">
+        <children xsi:type="basic:PartStack" xmi:id="_70syUDGvEeelWr2MbYhQcQ" elementId="com.hydra.project.partstack.loedigeDatenpool" selectedElement="_DcfDEDGwEeelWr2MbYhQcQ">
+          <children xsi:type="basic:Part" xmi:id="_DcfDEDGwEeelWr2MbYhQcQ" elementId="com.hydra.project.part.loedigeDatenpoolMitarbeiter" contributionURI="bundleclass://com.hydra.project/com.hydra.project.Viewer_Mitarbeiter.MitarbeiterTableView" label="Mitarbeiter" iconURI="platform:/plugin/com.hydra.project/icons/16x16/users.png" tooltip="Enhält eine Liste von Lödige Mitarbeitern"/>
+          <children xsi:type="basic:Part" xmi:id="_ewwrEDL5Eee72vgpyiX7KA" elementId="com.hydra.project.part.loedigeDatenpoolStunden" contributionURI="bundleclass://com.hydra.project/com.hydra.project.Viewer_Stunden.StundenTableView" label="Stunden gebucht" iconURI="platform:/plugin/com.hydra.project/icons/16x16/appointment-new.png" tooltip="Enhält eine Liste von gebuchten Stunden"/>
+          <children xsi:type="basic:Part" xmi:id="_hzTDMDiEEeeD860ckqFf7A" elementId="com.hydra.project.part.loedigeDatenpoolKostentraeger" contributionURI="bundleclass://com.hydra.project/com.hydra.project.Viewer_Kostenträger.MyXViewerTableView" label="Kostenträger" iconURI="platform:/plugin/com.hydra.project/icons/16x16/chart.png" tooltip="Enhält eine Liste von Kostenträger"/>
+          <children xsi:type="basic:Part" xmi:id="_pxPKIDiEEeeD860ckqFf7A" elementId="com.hydra.project.part.loedigeDatenpoolAuftraege" contributionURI="bundleclass://com.hydra.project/com.hydra.project.Viewer_Aufträge.MyXViewerTableView" label="Aufträge" iconURI="platform:/plugin/com.hydra.project/icons/16x16/sitemap-application-blue.png" tooltip="Enhält eine Liste von Aufträgen"/>
         </children>
       </children>
     </children>
@@ -140,9 +146,10 @@
         </children>
         <children xsi:type="menu:Menu" xmi:id="_JnqdwJ9EEeSGtYiRcvpZZw" elementId="com.hydra.project.menu.import_makros" label="Makros"/>
         <children xsi:type="menu:Menu" xmi:id="_uyRjkOWrEeSvItgvQ4imtw" elementId="com.hydra.project.menu.DynamicsMenue" label="Dynamics">
-          <children xsi:type="menu:HandledMenuItem" xmi:id="_yspHYOWrEeSvItgvQ4imtw" elementId="com.hydra.project.handledmenuitem.ImportMitarbeiter" label="Mitarbeiter" iconURI="platform:/plugin/com.hydra.project/icons/16x16/user-business.png" command="_g-ZZcOWqEeSvItgvQ4imtw"/>
-          <children xsi:type="menu:HandledMenuItem" xmi:id="_695L4OWrEeSvItgvQ4imtw" elementId="com.hydra.project.handledmenuitem.ImportStunden" label="Stunden" iconURI="platform:/plugin/com.hydra.project/icons/16x16/calendar-list.png" command="_sxa7kOWqEeSvItgvQ4imtw"/>
-          <children xsi:type="menu:HandledMenuItem" xmi:id="_dG43AAVUEeWkvoOQ3fgpUQ" elementId="com.hydra.project.handledmenuitem.ImportProjekte" label="Projekte" iconURI="platform:/plugin/com.hydra.project/icons/16x16/sitemap-application-blue.png"/>
+          <children xsi:type="menu:HandledMenuItem" xmi:id="_yspHYOWrEeSvItgvQ4imtw" elementId="com.hydra.project.handledmenuitem.ImportMitarbeiter" label="Mitarbeiter" iconURI="platform:/plugin/com.hydra.project/icons/16x16/user-business.png" tooltip="Erlaubt den Import von Mitarbeitern aus Dynamics" command="_g-ZZcOWqEeSvItgvQ4imtw"/>
+          <children xsi:type="menu:HandledMenuItem" xmi:id="_695L4OWrEeSvItgvQ4imtw" elementId="com.hydra.project.handledmenuitem.ImportStunden" label="Stunden" iconURI="platform:/plugin/com.hydra.project/icons/16x16/calendar-list.png" tooltip="Erlaubt den Import von Stunden aus Dynamics" command="_sxa7kOWqEeSvItgvQ4imtw"/>
+          <children xsi:type="menu:HandledMenuItem" xmi:id="_T4L2oDfpEeepkLzYd881vw" elementId="com.hydra.project.handledmenuitem.ImportKonstenraeger" label="Kostenträger" iconURI="platform:/plugin/com.hydra.project/icons/16x16/chart.png" tooltip="Erlaubt den Import von Konstenträgern aus Dynamics/Orderbase. Der Dateiname muß die zugehörige Auftragsnummer enthalten!" command="_unoKMDfoEeepkLzYd881vw"/>
+          <children xsi:type="menu:HandledMenuItem" xmi:id="_bNf3UDfpEeepkLzYd881vw" elementId="com.hydra.project.handledmenuitem.ImportAuftraege" label="Aufträge" iconURI="platform:/plugin/com.hydra.project/icons/16x16/sitemap-application-blue.png" tooltip="Erlaubt den Import von Aufträgen aus Dynamics/Orderbase." command="_11HroDfoEeepkLzYd881vw"/>
         </children>
       </children>
       <children xsi:type="menu:Menu" xmi:id="_ATuCoJ9DEeSGtYiRcvpZZw" elementId="com.hydra.project.menu.Export" label="Export">
@@ -152,12 +159,20 @@
         <children xsi:type="menu:Menu" xmi:id="_nNZMgJ9EEeSGtYiRcvpZZw" elementId="com.hydra.project.menu.export_inventor" label="Inventor"/>
         <children xsi:type="menu:Menu" xmi:id="_rYmBoJ9EEeSGtYiRcvpZZw" elementId="com.hydra.project.menu.export_makros" label="Makros"/>
       </children>
+      <children xsi:type="menu:Menu" xmi:id="_n7FSEE6DEeel7KUF7MaRsw" elementId="com.hydra.project.menu.Tools" label="Tools">
+        <children xsi:type="menu:Menu" xmi:id="_w-vq8E6DEeel7KUF7MaRsw" elementId="com.hydra.project.menu.BilanzStunden" label="Bilanz Stunden" iconURI="platform:/plugin/com.hydra.project/icons/16x16/application-monitor.png">
+          <children xsi:type="menu:HandledMenuItem" xmi:id="_4N4LIE6DEeel7KUF7MaRsw" elementId="com.hydra.project.handledmenuitem.BilanzKostenträger" label="Kostenträger" iconURI="platform:/plugin/com.hydra.project/icons/16x16/chart.png" tooltip="Erzeugt eine Übersicht der gebuchten Stunden über Kostenträger" command="_Ec59sE6NEeel7KUF7MaRsw"/>
+          <children xsi:type="menu:HandledMenuItem" xmi:id="_F-QKwE6EEeel7KUF7MaRsw" elementId="com.hydra.project.handledmenuitem.BilanzAuftrag" label="Auftrag" iconURI="platform:/plugin/com.hydra.project/icons/16x16/sitemap-application-blue.png" tooltip="Erzeugt eine Übersicht der gebuchten Stunden über einen Auftrag" command="_KjHuAE6NEeel7KUF7MaRsw"/>
+          <children xsi:type="menu:HandledMenuItem" xmi:id="_Q4iHAE6EEeel7KUF7MaRsw" elementId="com.hydra.project.handledmenuitem.BilanzAbteilung" label="Abteilung" iconURI="platform:/plugin/com.hydra.project/icons/16x16/chart-up-color.png" tooltip="Erzeugt eine Übersicht der gebuchten Stunden über eine Abteilung" command="_OJmFcE6NEeel7KUF7MaRsw"/>
+        </children>
+      </children>
       <children xsi:type="menu:Menu" xmi:id="_7qw6gJ9CEeSGtYiRcvpZZw" elementId="com.hydra.project.menu.Ansicht" label="Ansicht">
         <children xsi:type="menu:HandledMenuItem" xmi:id="_SMFLUJ9DEeSGtYiRcvpZZw" elementId="com.hydra.project.handledmenuitem.viewer" label="Viewer"/>
         <children xsi:type="menu:Menu" xmi:id="_i4Y_oAbVEeWiBdzl426Nwg" elementId="com.hydra.project.menu.Perspective" label="Perspektiven" iconURI="platform:/plugin/com.hydra.project/icons/16x16/ui-tab-content.png">
           <children xsi:type="menu:HandledMenuItem" xmi:id="_FzBK8AbgEeWiBdzl426Nwg" elementId="com.hydra.project.handledmenuitem.Perspective_Standard" label="Standardansicht" iconURI="platform:/plugin/com.hydra.project/icons/16x16/ui-scroll-pane-text.png" tooltip="Zeigt die Standardansicht" command="_yQF94AbfEeWiBdzl426Nwg"/>
           <children xsi:type="menu:HandledMenuItem" xmi:id="_zToqEAbVEeWiBdzl426Nwg" elementId="com.hydra.project.handledmenuitem.Perspective_ProjectCalendar" label="Projektkalender" iconURI="platform:/plugin/com.hydra.project/icons/16x16/ui-scroll-pane-text.png" tooltip="zeigt einen Projektkalender" type="Radio" command="_fHX9YAbbEeWiBdzl426Nwg"/>
           <children xsi:type="menu:HandledMenuItem" xmi:id="_wrJbYKUPEeaEapi3sV6tFQ" elementId="com.hydra.project.handledmenuitem.Perspective_Inventor" label="Inventor" iconURI="platform:/plugin/com.hydra.project/icons/16x16/Format.gif" command="_wUo4gKUSEeaEapi3sV6tFQ"/>
+          <children xsi:type="menu:HandledMenuItem" xmi:id="_Jfl_kDGxEeelWr2MbYhQcQ" elementId="com.hydra.project.handledmenuitem.Perspective_LoedigeDatenpool" label="Lödige Datenpool" iconURI="platform:/plugin/com.hydra.project/icons/16x16/binocular.png" tooltip="Enhält Listen von Lödige Daten" command="__Rm2sDGyEeelWr2MbYhQcQ"/>
         </children>
       </children>
       <children xsi:type="menu:Menu" xmi:id="_2XNQrs3YEeO40b46FSasUA" label="Hilfe">
@@ -181,6 +196,13 @@
         <children xsi:type="menu:HandledToolItem" xmi:id="_nyjVwCoZEeSWXYdcuuPXPQ" elementId="com.hydra.project.handledtoolitem.copyFileMenuItem" label="Projekt kopieren" iconURI="platform:/plugin/com.hydra.project/icons/16x16/copy.gif" tooltip="Erstellt ein Kopie des Projektes" command="_vR2q0CoXEeSWXYdcuuPXPQ"/>
         <children xsi:type="menu:ToolBarSeparator" xmi:id="_DrM3oCoaEeSWXYdcuuPXPQ" elementId="com.hydra.project.toolbarseparator.4"/>
         <children xsi:type="menu:HandledToolItem" xmi:id="_EIYi4CoaEeSWXYdcuuPXPQ" elementId="com.hydra.project.handledtoolitem.close" label="Anwendung schliessen" iconURI="platform:/plugin/com.hydra.project/icons/16x16/door-open-in.png" tooltip="Schliesst die Anwendung" command="_2XNQnM3YEeO40b46FSasUA"/>
+      </children>
+    </trimBars>
+    <trimBars xmi:id="_Qpws4EErEeeVuvfefCe41A" elementId="com.hydra.project.trimbar.0" side="Bottom">
+      <children xsi:type="menu:ToolBar" xmi:id="_UIL7kEErEeeVuvfefCe41A" elementId="com.hydra.project.toolbar.3">
+        <children xsi:type="menu:ToolControl" xmi:id="_cAzdoEErEeeVuvfefCe41A" elementId="com.hydra.project.toolcontrol.MyProgressbar" contributionURI="bundleclass://com.hydra.project/com.hydra.project.dialogs.MyProgressbar"/>
+        <children xsi:type="menu:ToolBarSeparator" xmi:id="_HMP9QEkFEee7c85g64o9fA" elementId="com.hydra.project.toolbarseparator.9"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_RBj1gEkFEee7c85g64o9fA" elementId="com.hydra.project.handledtoolitem.0"/>
       </children>
     </trimBars>
   </children>
@@ -212,9 +234,9 @@
   <handlers xmi:id="_PDemwIm6EeSk1dr1k5EhDA" elementId="com.hydra.project.handler.paste" command="_e8cgAIm5EeSk1dr1k5EhDA"/>
   <handlers xmi:id="_RmR6sIm6EeSk1dr1k5EhDA" elementId="com.hydra.project.handler.delete" command="_ieylYIm5EeSk1dr1k5EhDA"/>
   <handlers xmi:id="_4mDBwJ9BEeSGtYiRcvpZZw" elementId="com.hydra.project.handler.Perspective_ProjectCalendar" contributionURI="bundleclass://com.hydra.project/com.hydra.project.command.Perspective_ProjectCalendarCommand" command="_fHX9YAbbEeWiBdzl426Nwg"/>
-  <handlers xmi:id="_xNQ0wOWqEeSvItgvQ4imtw" elementId="com.hydra.project.handler.MitarbeiterHandler" contributionURI="bundleclass://com.hydra.project/com.hydra.project.handlers.OpenMitarbeiterHandler" command="_g-ZZcOWqEeSvItgvQ4imtw"/>
-  <handlers xmi:id="_aDoKQOWrEeSvItgvQ4imtw" elementId="com.hydra.project.handler.StundenHandler" contributionURI="bundleclass://com.hydra.project/com.hydra.project.command.OpenStundenFileCommand" command="_sxa7kOWqEeSvItgvQ4imtw"/>
-  <handlers xmi:id="_qa9KkAVTEeWkvoOQ3fgpUQ" elementId="com.hydra.project.handler.ProjektHandler" contributionURI="bundleclass://com.hydra.project/com.hydra.project.command.OpenProjektFileCommand" command="_5YEqIAVTEeWkvoOQ3fgpUQ"/>
+  <handlers xmi:id="_xNQ0wOWqEeSvItgvQ4imtw" elementId="com.hydra.project.handler.MitarbeiterImportHandler" contributionURI="bundleclass://com.hydra.project/com.hydra.project.handlers.OpenMitarbeiterHandler" command="_g-ZZcOWqEeSvItgvQ4imtw"/>
+  <handlers xmi:id="_aDoKQOWrEeSvItgvQ4imtw" elementId="com.hydra.project.handler.StundenImportHandler" contributionURI="bundleclass://com.hydra.project/com.hydra.project.handlers.OpenStundenHandler" command="_sxa7kOWqEeSvItgvQ4imtw"/>
+  <handlers xmi:id="_qa9KkAVTEeWkvoOQ3fgpUQ" elementId="com.hydra.project.handler.ProjektImportHandler" contributionURI="bundleclass://com.hydra.project/com.hydra.project.handlers.OpenProjektHandler" command="_5YEqIAVTEeWkvoOQ3fgpUQ"/>
   <handlers xmi:id="_5JpPoAbfEeWiBdzl426Nwg" elementId="com.hydra.project.handler.Perspective_Standard" contributionURI="bundleclass://com.hydra.project/com.hydra.project.command.Perspective_StandardCommand" command="_yQF94AbfEeWiBdzl426Nwg"/>
   <handlers xmi:id="_y3NTcHNXEeWOgptnw4M0BA" elementId="com.hydra.project.handler.ParameterUpdateHandler" contributionURI="bundleclass://com.hydra.project/com.hydra.project.handlers.ParameterUpdateHandler" command="_TniV8HNYEeWOgptnw4M0BA"/>
   <handlers xmi:id="_TIVK4HgNEeWCBepXuDGBrg" elementId="com.hydra.project.handler.EigenschaftUpdateHandler" contributionURI="bundleclass://com.hydra.project/com.hydra.project.handlers.EigenschaftUpdateHandler" command="_YZhXsHgNEeWCBepXuDGBrg"/>
@@ -222,6 +244,12 @@
   <handlers xmi:id="_rbV8YKUUEeaEapi3sV6tFQ" elementId="com.hydra.project.handler.Perspective_Inventor" contributionURI="bundleclass://com.hydra.project/com.hydra.project.command.Perspective_InventorCommand" command="_wUo4gKUSEeaEapi3sV6tFQ"/>
   <handlers xmi:id="_fcDSEKXTEean3ql1ieGRsg" elementId="com.hydra.project.handler.inventor_excel_file_open" contributionURI="bundleclass://com.hydra.project/com.hydra.project.handlers.InventorExcelOpenFileHandler" command="_QbF0UKXTEean3ql1ieGRsg"/>
   <handlers xmi:id="_qzoiIKwlEea5gZfy2tt5EA" elementId="com.hydra.project.handler.open_settings" contributionURI="bundleclass://com.hydra.project/com.hydra.project.handlers.OpenSettingsHandler" command="_lxbMgKwlEea5gZfy2tt5EA"/>
+  <handlers xmi:id="_sM52sDGyEeelWr2MbYhQcQ" elementId="com.hydra.project.handler.Perspective_LoedigeDatenpool" contributionURI="bundleclass://com.hydra.project/com.hydra.project.command.Perspective_LoedigeDatenpoolCommand" command="__Rm2sDGyEeelWr2MbYhQcQ"/>
+  <handlers xmi:id="_HPu90DfoEeepkLzYd881vw" elementId="com.hydra.project.handler.KostentraegerImportHandler" contributionURI="bundleclass://com.hydra.project/com.hydra.project.handlers.OpenKostenträgerHandler" command="_unoKMDfoEeepkLzYd881vw"/>
+  <handlers xmi:id="_dnitUDfoEeepkLzYd881vw" elementId="com.hydra.project.handler.AuftraegerImportHandler" contributionURI="bundleclass://com.hydra.project/com.hydra.project.handlers.OpenAufträgeHandler" command="_11HroDfoEeepkLzYd881vw"/>
+  <handlers xmi:id="_SK6l0E6NEeel7KUF7MaRsw" elementId="com.hydra.project.handler.BilanzKostenträger" contributionURI="bundleclass://com.hydra.project/com.hydra.project.handlers.BilanzKostenträgerHandler" command="_Ec59sE6NEeel7KUF7MaRsw"/>
+  <handlers xmi:id="_Vc6iEE6NEeel7KUF7MaRsw" elementId="com.hydra.project.handler.BilanzAuftrag" contributionURI="bundleclass://com.hydra.project/com.hydra.project.command.BilanzAuftragCommand" command="_KjHuAE6NEeel7KUF7MaRsw"/>
+  <handlers xmi:id="_XsFvYE6NEeel7KUF7MaRsw" elementId="com.hydra.project.handler.BilanzAbteilung" contributionURI="bundleclass://com.hydra.project/com.hydra.project.handlers.BilanzAbteilungHandler" command="_OJmFcE6NEeel7KUF7MaRsw"/>
   <bindingTables xmi:id="_2XNQns3YEeO40b46FSasUA" bindingContext="_2XNQmc3YEeO40b46FSasUA">
     <bindings xmi:id="_2XNQn83YEeO40b46FSasUA" keySequence="M1+Q" command="_2XNQnM3YEeO40b46FSasUA"/>
     <bindings xmi:id="_2XNQos3YEeO40b46FSasUA" keySequence="M1+O" command="_2XNQoM3YEeO40b46FSasUA"/>
@@ -233,6 +261,8 @@
     <children xmi:id="_2XNQm83YEeO40b46FSasUA" elementId="org.eclipse.ui.contexts.dialog" name="In Dialogs"/>
   </rootContext>
   <descriptors xmi:id="_zhX-QPlOEeOt0_I4HDyFXA" elementId="com.hydra.project.partdescriptor.0"/>
+  <toolBarContributions xmi:id="_bi_SkELTEeeye_7Thzo2HA" elementId="com.hydra.project.toolbarcontribution.0"/>
+  <trimContributions xmi:id="_xjaw4EEzEeeVuvfefCe41A" elementId="com.hydra.project.trimcontribution.0"/>
   <commands xmi:id="_2XNQnM3YEeO40b46FSasUA" elementId="org.eclipse.ui.file.exit" commandName="Schließen"/>
   <commands xmi:id="_2XNQoM3YEeO40b46FSasUA" elementId="com.hydra.project.open" commandName="Öffnen"/>
   <commands xmi:id="_2XNQo83YEeO40b46FSasUA" elementId="org.eclipse.ui.file.save" commandName="Speichern" description="Speichern"/>
@@ -260,9 +290,9 @@
   <commands xmi:id="_aXo4EIm5EeSk1dr1k5EhDA" elementId="org.eclipse.ui.edit.cut" commandName="Ausschneiden"/>
   <commands xmi:id="_e8cgAIm5EeSk1dr1k5EhDA" elementId="org.eclipse.ui.edit.paste" commandName="Einfügen"/>
   <commands xmi:id="_ieylYIm5EeSk1dr1k5EhDA" elementId="org.eclipse.ui.edit.delete" commandName="Löschen"/>
-  <commands xmi:id="_g-ZZcOWqEeSvItgvQ4imtw" elementId="com.hydra.project.command.MitarbeiterCommand" commandName="Mitarbeiter importieren"/>
-  <commands xmi:id="_sxa7kOWqEeSvItgvQ4imtw" elementId="com.hydra.project.command.StundenCommand" commandName="Stunden importieren"/>
-  <commands xmi:id="_5YEqIAVTEeWkvoOQ3fgpUQ" elementId="com.hydra.project.command.ProjektCommand" commandName="Projekte importieren"/>
+  <commands xmi:id="_g-ZZcOWqEeSvItgvQ4imtw" elementId="com.hydra.project.command.MitarbeiterImportCommand" commandName="Mitarbeiter importieren"/>
+  <commands xmi:id="_sxa7kOWqEeSvItgvQ4imtw" elementId="com.hydra.project.command.StundenImportCommand" commandName="Stunden importieren"/>
+  <commands xmi:id="_5YEqIAVTEeWkvoOQ3fgpUQ" elementId="com.hydra.project.command.ProjektImportCommand" commandName="Projekte importieren"/>
   <commands xmi:id="_fHX9YAbbEeWiBdzl426Nwg" elementId="com.hydra.project.command.Perspective_ProjectCalendar" commandName="Perspektive Projektkalender "/>
   <commands xmi:id="_TniV8HNYEeWOgptnw4M0BA" elementId="com.hydra.project.command.ParameterUpdateCommand" commandName="Parameter abgleichen"/>
   <commands xmi:id="_yQF94AbfEeWiBdzl426Nwg" elementId="com.hydra.project.command.Perspective_Standard" commandName="Perspektive Standard"/>
@@ -271,6 +301,13 @@
   <commands xmi:id="_P7ewMHgUEeWCBepXuDGBrg" elementId="com.hydra.project.command.KnotenstrukturUpdateCommand" commandName="Knotenstruktur abgleichen"/>
   <commands xmi:id="_QbF0UKXTEean3ql1ieGRsg" elementId="com.hydra.project.command.inventor_open_excel_file" commandName="Inventor Excel Struktur öffnen"/>
   <commands xmi:id="_lxbMgKwlEea5gZfy2tt5EA" elementId="com.hydra.project.command.open_settings" commandName="Einstellungen"/>
+  <commands xmi:id="__Rm2sDGyEeelWr2MbYhQcQ" elementId="com.hydra.project.command.Perspective.LoedigeDatenpool" commandName="Perspektive Loedige Datenpool"/>
+  <commands xmi:id="_unoKMDfoEeepkLzYd881vw" elementId="com.hydra.project.command.KostentraegerImportCommand" commandName="Kostenräger importieren"/>
+  <commands xmi:id="_11HroDfoEeepkLzYd881vw" elementId="com.hydra.project.command.AuftraegeImportCommand" commandName="Auftrage importieren"/>
+  <commands xmi:id="_OHXTkELWEeeye_7Thzo2HA" elementId="com.hydra.project.command.progressbar" commandName="Progressbar"/>
+  <commands xmi:id="_Ec59sE6NEeel7KUF7MaRsw" elementId="com.hydra.project.command.BilanzKostenträger" commandName="Bilanz Kostenträger"/>
+  <commands xmi:id="_KjHuAE6NEeel7KUF7MaRsw" elementId="com.hydra.project.command.BilanzAuftrag" commandName="Bilanz Auftrag"/>
+  <commands xmi:id="_OJmFcE6NEeel7KUF7MaRsw" elementId="com.hydra.project.command.BilanzAbteilung" commandName="Bilanz Abteilung"/>
   <addons xmi:id="_2XNQks3YEeO40b46FSasUA" elementId="org.eclipse.e4.core.commands.service" contributionURI="bundleclass://org.eclipse.e4.core.commands/org.eclipse.e4.core.commands.CommandServiceAddon"/>
   <addons xmi:id="_2XNQk83YEeO40b46FSasUA" elementId="org.eclipse.e4.ui.contexts.service" contributionURI="bundleclass://org.eclipse.e4.ui.services/org.eclipse.e4.ui.services.ContextServiceAddon"/>
   <addons xmi:id="_2XNQlM3YEeO40b46FSasUA" elementId="org.eclipse.e4.ui.bindings.service" contributionURI="bundleclass://org.eclipse.e4.ui.bindings/org.eclipse.e4.ui.bindings.BindingServiceAddon"/>
@@ -278,4 +315,10 @@
   <addons xmi:id="_2XNQls3YEeO40b46FSasUA" elementId="org.eclipse.e4.ui.workbench.handler.model" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.HandlerProcessingAddon"/>
   <addons xmi:id="_2XNQl83YEeO40b46FSasUA" elementId="org.eclipse.e4.ui.workbench.contexts.model" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.ContextProcessingAddon"/>
   <addons xmi:id="_2XNQmM3YEeO40b46FSasUA" elementId="org.eclipse.e4.ui.workbench.bindings.model" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.swt/org.eclipse.e4.ui.workbench.swt.util.BindingProcessingAddon"/>
+  <addons xmi:id="_G7TlYEE9EeeVuvfefCe41A" elementId="com.hydra.project.addon.0" contributionURI="bundleclass://com.hydra.project/com.hydra.project.dialogs.ProgressBarAddon"/>
+  <addons xmi:id="_eGyqAEYeEeeO1avbKivQSw" elementId="com.hydra.project.addon.DBStundenTools" contributionURI="bundleclass://com.hydra.project/com.hydra.project.database.DBStundenTools"/>
+  <addons xmi:id="_dAPTIEm3EeeLX9HN9NPmVw" elementId="com.hydra.project.addon.SummeKostenträger" contributionURI="bundleclass://com.hydra.project/com.hydra.project.database.calc.SummeKostenträger"/>
+  <addons xmi:id="_CcdK4E53Eeel7KUF7MaRsw" elementId="com.hydra.project.addon.DBAufträgeTools" contributionURI="bundleclass://com.hydra.project/com.hydra.project.database.DBAufträgeTools"/>
+  <addons xmi:id="_I7jVQE53Eeel7KUF7MaRsw" elementId="com.hydra.project.addon.SummeAufträge" contributionURI="bundleclass://com.hydra.project/com.hydra.project.database.calc.SummeAufträge"/>
+  <addons xmi:id="_TIOgcE5-Eeel7KUF7MaRsw" elementId="com.hydra.project.addon.DBKostenträgerTools" contributionURI="bundleclass://com.hydra.project/com.hydra.project.database.DBKostentraegerTools"/>
 </application:Application>

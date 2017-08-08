@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: MyPlugin_db4o
+Bundle-SymbolicName: com.hydra.project.MyPlugin_db4o
+Bundle-Version: 1.0.0
+Bundle-ClassPath: .
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: com.db4o,
+ com.db4o.config,
+ com.db4o.constraints,
+ com.db4o.cs,
+ com.db4o.cs.config,
+ com.db4o.ext,
+ com.db4o.messaging,
+ com.db4o.query,
+ com.db4o.reflect.jdk
